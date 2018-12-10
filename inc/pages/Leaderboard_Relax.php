@@ -27,6 +27,8 @@ class Leaderboard_Relax {
 		$m = ($m < 0 || $m > 3 ? 0 : $m);
 		// Bold the selected mode
 		$modesText[$m] = '<b>'.$modesText[$m].'</b>';
+		// Header meme
+		echo '<blockquote><p><font size="4"><i>"banning is an okay thing to do these days"</font></i></p><footer>Dean (peppy) Herbert</footer></blockquote>';
 		// PP or Score ranking
 		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 1 || $m == 2))
 			$scoringName = "PP";

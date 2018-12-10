@@ -28,6 +28,8 @@ class Leaderboard {
 		$m = ($m < 0 || $m > 3 ? 0 : $m);
 		// Bold the selected mode
 		$modesText[$m] = '<b>'.$modesText[$m].'</b>';
+		// Header meme
+		echo '<blockquote><p>Plz enjoy game.</p><footer>rrtyui</footer></blockquote>';
 		// PP or Score ranking
 		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3))
 			$scoringName = "PP";
