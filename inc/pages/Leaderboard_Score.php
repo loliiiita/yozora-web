@@ -47,7 +47,7 @@ class Leaderboard_Score {
 		$tb = 'leaderboard_'.$modeForDB;
 		// Get all user data and order them by score
 		$leaderboard = $GLOBALS['db']->fetchAll("SELECT * FROM users_stats INNER JOIN users ON users.id=users_stats.id WHERE users.privileges & 1 > 0
-		ORDER BY users_stats.pp_".$modeForDB."_rx DESC
+		ORDER BY users_stats.ranked_score_".$modeForDB." DESC
 		LIMIT $offset, 100;");
 
 		if (count($leaderboard) == 0) {
