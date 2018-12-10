@@ -29,7 +29,7 @@ class Leaderboard_Score {
 		$modesText[$m] = '<b>'.$modesText[$m].'</b>';
 		// Header meme
 		//echo '<blockquote><p><font size="4"><i>"banning is an okay thing to do these days"</font></i></p><footer>Dean (peppy) Herbert</footer></blockquote>';
-		echo '<blockquote><p>Plz enjoy game.</p><footer>rrtyui</footer></blockquote>';
+//		echo '<blockquote><p>Plz enjoy game.</p><footer>rrtyui</footer></blockquote>';
 		// PP or Score ranking
 		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 1 || $m == 2))
 			$scoringName = "Score";
