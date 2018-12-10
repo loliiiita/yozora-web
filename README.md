@@ -1,24 +1,14 @@
-## old-frontend
+# Yozora-web
 
-This is Ripple's current frontend, written in PHP.
-~~This is the only part of Ripple we've not rewritten since the first version of Ripple, and it sucks.~~ We've actually rewritten also this.
-But, since the code is here just for reference, I don't think it's a huge problem.
+This is the frontend currently live on https://new.yozora.pw/
+
+It's written in PHP but has been shown to be suprisingly fast and stable. It's based on Ripple but some parts have been completely rewritten.
 
 - Origin: https://git.zxq.co/ripple/old-frontend
-- Mirror: https://github.com/osuripple/old-frontend
 
 ## Installation
-Copy config.sample.php as config.php and edit it
-```
-$ cd inc
-$ cp config.sample.php config.php
-$ nano config.php
-```
-Then, run composer install on the main directory
-```
-$ composer install
-```
+
+**No support is given for running this code. You should probably learn what you're doing before messing with it.**
 
 ## License
-All code in this repository is licensed under the GNU AGPL 3 License.  
-See the "LICENSE" file for more information
+All code in this repository is licensed under the GNU AGPL 3 License. See the "LICENSE" file for more information.
