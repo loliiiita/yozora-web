@@ -11,7 +11,7 @@ class Leaderboard_Relax {
 
 		global $ScoresConfig;
         echo "<h2>Relax Leaderboard</h2>";
-        echo "<p>View the Regular Leaderboard <a href='/leaderboard'>here</a><br>";
+		echo "<a href='/leaderboard'>Regular</a> | <b><a href='/relaxboard'>Relax</a></b> | <a href='/scoreboard'>Score</a>";
 		// Leaderboard names (to bold the selected mode)
 		$modesText = [0 => 'osu!standard', 1 => 'Taiko', 2 => 'Catch the Beat', 3 => 'osu!mania'];
 		// Set $m value to 0 if not set
@@ -33,7 +33,7 @@ class Leaderboard_Relax {
 		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 1 || $m == 2))
 			$scoringName = "PP";
 		else
-			$scoringName = "Score";
+			$scoringName = "PP";
 		echo '<a href="index.php?p=13&m=0">'.$modesText[0].'</a> | <a href="index.php?p=13&m=1">'.$modesText[1].'</a> | <a href="index.php?p=13&m=2">'.$modesText[2].'</a> | <a href="index.php?p=13&m=3">'.$modesText[3].'</a>';
 
 		// paginate: generate db offset
@@ -84,7 +84,7 @@ class Leaderboard_Relax {
 				$rankSymbol = '#';
 			}
 			// Show PP or score
-			if ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3))
+			if ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 2 || $m == 1))
 				$score = number_format($lbUser['pp_'.$modeForDB.'_rx']) . ' pp';
 			else
 				$score = number_format($lbUser['ranked_score_'.$modeForDB]);
