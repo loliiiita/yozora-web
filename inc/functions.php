@@ -27,6 +27,7 @@ require_once $df.'/helpers/APITokens.php';
 require_once $df.'/pages/Login.php';
 require_once $df.'/pages/Leaderboard.php';
 require_once $df.'/pages/Leaderboard_Relax.php';
+require_once $df.'/pages/Leaderboard_Score.php';
 require_once $df.'/pages/PasswordFinishRecovery.php';
 require_once $df.'/pages/ServerStatus.php';
 require_once $df.'/pages/UserLookup.php';
@@ -59,6 +60,7 @@ $pages = [
 	new Verify(),
 	new Welcome(),
 	new Leaderboard_Relax(),
+	new Leaderboard_Score(),
 ];
 // Set timezone to UTC
 date_default_timezone_set('Europe/Rome');
