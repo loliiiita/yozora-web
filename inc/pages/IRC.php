@@ -16,7 +16,7 @@ class IRC {
 				Here you can generate a new IRC token. You can use it to connect to ripple\'s chat using IRC.<br>
 				Remember that your IRC token is like a password, anyone who knows it, has access to your account.<br>
 				<a href="index.php?p=16&id=11">Click here to know how to connect to ripple through IRC</a><br><br>
-				<a href="submit.php?action=IRC" type="button" class="btn btn-primary"><i class="fa fa-refresh"></i>	Generate a new IRC token</a><br>
+				<a href="/submit.php?action=IRC" type="button" class="btn btn-primary"><i class="fa fa-refresh"></i>	Generate a new IRC token</a><br>
 				<i>Your old token won\'t be valid anymore</i>
 			</div>
 		</div>';

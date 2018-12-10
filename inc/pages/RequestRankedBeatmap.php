@@ -36,7 +36,7 @@ class RequestRankedBeatmap {
 				<hr>
 				<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i>	Every user can send <b>'.$ScoresConfig["rankRequestsPerUser"].' rank requests every 24 hours</b>, and a maximum of <b>'.$ScoresConfig["rankRequestsQueueSize"].' beatmaps</b> can be requested <b>every 24 hours</b> by all users. <b>Remember that troll or invalid maps will still count as valid rank requests, so request only beatmaps that you <u>really</u> want to see ranked, since the number of daily rank requests is limited.</b></div>
 				<b>Beatmap/Beatmap set link</b><br>
-				<form action="submit.php" method="POST">
+				<form action="/submit.php" method="POST">
 					<input name="action" value="RequestRankedBeatmap" hidden>
 					<div class="input-group">
 						<input type="text" name="url" class="form-control" placeholder="http://osu.ppy.sh/s/xxxxx">

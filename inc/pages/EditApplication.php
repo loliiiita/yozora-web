@@ -20,14 +20,14 @@ class EditApplication {
 		<div class="narrow-content" style="width:500px">
 			<h1><i class="fa fa-plane"></i> Edit application</h1><br>
 			<p>Here you can change your application's information. This will be shown to users when they are prompted to log in into your application.</p>
-			<form action="submit.php?action=editApplication" method="post">
+			<form action="/submit.php?action=editApplication" method="post">
 				<input name="name" class="form-control" placeholder="Application name" maxlength="64" spellcheck="false" value="<?= htmlentities($app["name"], ENT_QUOTES); ?>">
 				<br>
 				<textarea name="description" class="form-control" placeholder="Application description" maxlength="2000" spellcheck="false" rows="4"><?= htmlentities($app["description"]); ?></textarea>
 				<br>
 				<input type="hidden" name="id" value="<?= $app['id'] ?>">
 				<a href="index.php?p=32"><button type="button" class="btn btn-default">Go back</button></a>
-				<button type="button" class="btn btn-danger" onclick='reallysure("submit.php?action=deleteApplication&id=<?= $app['id'] ?>");'>Delete</button>
+				<button type="button" class="btn btn-danger" onclick='reallysure("/submit.php?action=deleteApplication&id=<?= $app['id'] ?>");'>Delete</button>
 				<button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>

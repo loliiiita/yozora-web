@@ -16,7 +16,7 @@ class PasswordFinishRecovery {
 		}
 		echo '<div id="narrow-content" style="width:500px"><h1><i class="fa fa-exclamation-circle"></i> Recover your password</h1>';
 		echo sprintf('<p>Glad to have you here again, %s! To finish the password recovery, please type in a new password:</p>', $_GET['user']);
-		echo '<form action="submit.php" method="POST">
+		echo '<form action="/submit.php" method="POST">
 		<input name="action" value="recovery/finish" hidden>
 		<input name="k" value="'.$_GET['k'].'" hidden>
 		<input name="user" value="'.$_GET['user'].'" hidden>

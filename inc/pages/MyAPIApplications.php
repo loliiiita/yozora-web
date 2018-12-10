@@ -32,7 +32,7 @@ class MyAPIApplications {
 			if (count($myApps) >= 50) $els[] = '<a href="index.php?p=32&page=' . ($p + 1) . '">Next page</a>';
 			if (count($els) > 0) echo '<br><br>' . implode(' | ', $els);
 			?><br><br>
-			<a href="submit.php?action=myApplications"><button type="button" class="btn btn-primary">New application</button></a>
+			<a href="/submit.php?action=myApplications"><button type="button" class="btn btn-primary">New application</button></a>
 		</div>
 		<?php
 	}

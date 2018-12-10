@@ -1,3 +1,6 @@
 [submodule "secret"]
 	path = secret
 	url = https://github.com/osufx/secret
+[submodule "git"]
+	path = git
+	url = https://github.com/osufx/secret
