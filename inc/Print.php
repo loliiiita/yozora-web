@@ -3,7 +3,7 @@
 class P {
 	/*
 	 * AdminDashboard
-	 * Prints the admin panel dashborad page
+	 * Prints the admin panel dashboard page
 	*/
 	public static function AdminDashboard() {
 		// Get admin dashboard data
@@ -12,13 +12,12 @@ class P {
 		$totalScoresFull = current($GLOBALS['db']->fetch('SELECT SUM(playcount_std) + SUM(playcount_taiko) + SUM(playcount_ctb) + SUM(playcount_mania) FROM users_stats WHERE 1'));
 		$totalScores = number_format($totalScoresFull  / 1000000, 2) . "m";
 		// $betaKeysLeft = "∞";
-		/*$totalPPQuery = $GLOBALS['db']->fetch("SELECT SUM(pp) FROM scores WHERE completed = 3 LIMIT 1");
+		$totalPPQuery = $GLOBALS['db']->fetch("SELECT SUM(pp) FROM scores WHERE completed = 3 LIMIT 1");
 		$totalPP = 0;
 		foreach ($totalPPQuery as $pp) {
 			$totalPP += $pp;
 		}
-		$totalPP = number_format($totalPP);*/
-		$totalPP = "🍆";
+		$totalPP = number_format($totalPP);
 		$recentPlays = $GLOBALS['db']->fetchAll('
 		SELECT
 			beatmaps.song_name, scores.beatmap_md5, users.username,
