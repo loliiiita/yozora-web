@@ -4,11 +4,12 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 @import url('https://fonts.googleapis.com/css?family=Space+Mono');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
 
 body {
 	padding-top: 70px;
 	text-align: left;
-	font-family: Source Sans Pro;
+	font-family: 'Exo 2', sans-serif;
 	font-size: 160%;
 }
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -18,7 +19,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: Raleway;
+	font-family: 'Exo 2', sans-serif;
 }
 
 ul.nav li:hover > ul.dropdown-menu {
@@ -497,7 +498,7 @@ hr {
 
 .teammate-name {
 	font-size: 24px;
-	font-family: Raleway;
+	font-family: 'Exo 2', sans-serif;
 	border-bottom: 2px dashed #616161;
 }
 
