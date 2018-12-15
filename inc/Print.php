@@ -1332,6 +1332,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			$latestActivity = $userData['latest_activity'];
 			$silenceEndTime = $userData['silence_end'];
 			$silenceReason = $userData['silence_reason'];
+			$currentStatus = $userData['current_status'];
 
 			// Get badges id and icon (max 6 badges)
 			$badgeID = [];
@@ -1592,6 +1593,17 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			<td id="stats-name">Maximum Combo</td>
 			<td id="stats-value"><b>'.number_format($maximumCombo).'</b></td>
 			</tr>
+			';
+			if ($currentStatus != "Offline" || $currentStatus != null) {
+				if ($currentStatus == "" || $currentStatus == " with Relax") {
+					$currentStatus = "Idle";
+				}
+				echo '<tr>
+				<td id="stats-name">Current Status</td>
+				<td id="stats-value"><b>'.$currentStatus.'</b></td>
+				</tr>';
+			}
+			echo '
 			<tr>
 				<td id="stats-name">Replays watched by others</td>
 				<td id="stats-value"><b>'.number_format($replaysWatchedByOthers).'</b></td>
