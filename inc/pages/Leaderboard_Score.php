@@ -1,9 +1,9 @@
 <?php
 
-class Leaderboard {
-	const PageID = 13;
+class Leaderboard_Score {
+	const PageID = 1337;
 	const URL = 'leaderboard';
-	const Title = 'Yozora - Leaderboard';
+	const Title = 'Yozora - Score Leaderboard';
 	
 
 	public function P() {
