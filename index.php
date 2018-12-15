@@ -121,8 +121,8 @@ if ($p == 27) {
     <!-- Datepicker CSS -->
     <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 	
-	<!-- Yozora custom CSS -->
-	<link href="/css/yozora.css" rel="stylesheet">
+	<!-- Yozora custom CSS
+	<link href="/css/yozora.css" rel="stylesheet"> -->
 
     <!-- Animate CSS -->
     <link rel="stylesheet" href="/css/animate.css">
