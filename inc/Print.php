@@ -1594,15 +1594,17 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			<td id="stats-value"><b>'.number_format($maximumCombo).'</b></td>
 			</tr>
 			';
-			if ($currentStatus != "Offline" || $currentStatus != null) {
-				if ($currentStatus == "" || $currentStatus == " with Relax") {
-					$currentStatus = "Idle";
-				}
-				echo '<tr>
+			if ($currentStatus == "" || $currentStatus == " with Relax") {
+				$currentStatus = "Idle";
+			}
+			if ($currentStatus == null) {
+				$currentStatus = "Offline"
+			}
+			echo '<tr>
 				<td id="stats-name">Current Status</td>
 				<td id="stats-value"><b>'.$currentStatus.'</b></td>
 				</tr>';
-			}
+			
 			echo '
 			<tr>
 				<td id="stats-name">Replays watched by others</td>
