@@ -1,17 +1,18 @@
 <?php
 
-class Leaderboard_Score {
-	const PageID = 1337;
+class Leaderboard {
+	const PageID = 13;
 	const URL = 'leaderboard';
-	const Title = 'Yozora - Score Leaderboard';
+	const Title = 'Yozora - Leaderboard';
+	
 
 	public function P() {
 		P::GlobalAlert();
 		P::MaintenanceStuff();
 
 		global $ScoresConfig;
-		echo "<h2>Score Leaderboard</h2>";
-        echo "";
+		echo "<h2>Scoreboard</h2>";
+		echo "<a href='/leaderboard'>Regular</a> | <a href='/relaxboard'>Relax</a> | <b><a href='/scoreboard'>Score</a></b>";
 		// Leaderboard names (to bold the selected mode)
 		$modesText = [0 => 'osu!standard', 1 => 'Taiko', 2 => 'Catch the Beat', 3 => 'osu!mania'];
 		// Set $m value to 0 if not set
@@ -28,10 +29,9 @@ class Leaderboard_Score {
 		// Bold the selected mode
 		$modesText[$m] = '<b>'.$modesText[$m].'</b>';
 		// Header meme
-		//echo '<blockquote><p><font size="4"><i>"banning is an okay thing to do these days"</font></i></p><footer>Dean (peppy) Herbert</footer></blockquote>';
-//		echo '<blockquote><p>Plz enjoy game.</p><footer>rrtyui</footer></blockquote>';
+		echo '<blockquote><p>Plz enjoy game.</p><footer>rrtyui</footer></blockquote>';
 		// PP or Score ranking
-		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 1 || $m == 2))
+		if  ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3))
 			$scoringName = "Score";
 		else
 			$scoringName = "Score";
@@ -85,7 +85,10 @@ class Leaderboard_Score {
 				$rankSymbol = '#';
 			}
 			// Show PP or score
-			$score = number_format($lbUser['ranked_score_'.$modeForDB]);
+			if ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 2 || $m == 1))
+				$score = number_format($lbUser['ranked_score_'.$modeForDB]) . ' Score';
+			else
+				$score = number_format($lbUser['ranked_score_'.$modeForDB]);
 			// Draw table row for this user
 			echo '<tr class="'.$tc.'">
 			<td><b>'.$rankSymbol.$offset.'</b></td>';
