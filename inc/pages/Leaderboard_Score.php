@@ -11,7 +11,7 @@ class Leaderboard_Score {
 
 		global $ScoresConfig;
 		echo "<h2>Score Leaderboard</h2>";
-        echo "<a href='/leaderboard'>Regular</a> | <a href='/relaxboard'>Relax</a> | <b><a href='/scoreboard'>Score</a></b>";
+        echo "";
 		// Leaderboard names (to bold the selected mode)
 		$modesText = [0 => 'osu!standard', 1 => 'Taiko', 2 => 'Catch the Beat', 3 => 'osu!mania'];
 		// Set $m value to 0 if not set
