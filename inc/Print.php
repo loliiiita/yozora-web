@@ -1598,7 +1598,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				$currentStatus = "Idle";
 			}
 			if ($currentStatus == null) {
-				$currentStatus = "Offline"
+				$currentStatus = "Offline";
 			}
 			echo '<tr>
 				<td id="stats-name">Current Status</td>
