@@ -1,7 +1,7 @@
 <?php
 
 class Leaderboard_Score {
-	const PageID = 1337;
+	const PageID = 97;
 	const URL = 'leaderboard';
 	const Title = 'Yozora - Score Leaderboard';
 	
