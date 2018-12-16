@@ -541,7 +541,11 @@ switch ($p) {
 }
 
 // Userpage JS
-
+if (isset($_GET["u"]) && !isset($_GET["p"]) && isset($_GET("rx"))) {
+	echo '<script src="/js/user_relax.js"></script>';
+} else if (isset($_GET["u"]) && !isset($_GET["p"])) {
+	echo '<script src="/js/user.js"></script>';
+}
 ?>
 
 </body>

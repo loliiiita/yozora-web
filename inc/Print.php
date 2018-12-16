@@ -1333,8 +1333,6 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			$silenceEndTime = $userData['silence_end'];
 			$silenceReason = $userData['silence_reason'];
 			$currentStatus = $userData['current_status'];
-			$recentPlays = $GLOBALS['db']->fetchAll('SELECT * FROM scores ORDER BY id DESC LIMIT 10');
-			$topPlays = $GLOBALS['db']->fetchAll('SELECT * FROM scores ORDER BY pp DESC LIMIT 10');
 
 			// Get badges id and icon (max 6 badges)
 			$badgeID = [];
@@ -1632,57 +1630,26 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			if ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3))
 				$scoringName = "PP";
 			else
-				$scoringName = "PP";
+				$scoringName = "Score";
 
 			echo '</table>
 			</div>
 			</div>
 			<div id ="userpage-plays">';
-			// Print top plays table (only if we have them)
-			if ($topPlays) {
-				echo '<table class="table">
-				<tr><th class="text-left">Rank</th><th class="text-left"><i class="fa fa-trophy"></i>	Top plays</th><th class="text-right">Accuracy</th><th class="text-right">Performance</th></tr>';
-				for ($i = 0; $i < count($topPlays); $i++) {
-					$playrank = strtolower(getPlayRank($topPlays[$i]['id']));
-					$ranksymbol = '<img src="/images/ranks/'.$playrank.'.png"></img>';
-					
-					// Get beatmap name from md5 (beatmaps_names) for this play
-					$bn = $GLOBALS['db']->fetch('SELECT beatmap_name FROM beatmaps_names WHERE beatmap_md5 = ?', $topPlays[$i]['beatmap_md5']);
-					if ($bn) {
-						// Beatmap name found, print beatmap name and score
-						echo '<tr>';
-						echo '<td class="warning">'.$ranksymbol.'</td>';
-						echo '<td class="warning"><p class="text-left">'.current($bn).' <b>'.getScoreMods($topPlays[$i]['mods']).'</b><small>×'.$topPlays[$i]['max_combo'].'</small><br><small>'.timeDifference(time(), osuDateToUNIXTimestamp($topPlays[$i]['time'])).'</small>'.'</b></p></td>';
-						echo '<td class="warning"><p class="text-right">'.accuracy($topPlays[$i]['accuracy']).'%</p></td>';
-						echo '<td class="warning"><p class="text-right"><b>'.number_format($topPlays[$i]['pp']).' pp</b>	<a href="/web/osu-getreplay-full.php?c='.$topPlays[$i]['id'].'"><i class="fa fa-star"></i></a></p></td>';
-						echo '</tr>';
-					}
-				}
-				echo '</table>';
-			}
+
+			echo '<table class="table" id="best-plays-table">
+			<tr><th class="text-left"><i class="fa fa-trophy"></i>	Top plays</th><th class="text-right">' . $scoringName . '</th></tr>';
+			echo '</table>';
+			echo '<button type="button" class="btn btn-default load-more-user-scores" data-rel="best" disabled>Show me more!</button>';
+
 			// brbr it's so cold
-			echo '<br><br>';
-			// Print recent plays table (only if we have them)
-			if ($recentPlays) {
-				echo '<table class="table">
-				<tr><th class="text-left">Rank</th><th class="text-left"><i class="fa fa-clock-o"></i>	Recent plays</th><th class="text-right">Accuracy</th><th class="text-right">Performance</th></tr>';
-				for ($i = 0; $i < count($recentPlays); $i++) {
-					$playrank = strtolower(getPlayRank($recentPlays[$i]['id']));
-					$ranksymbol = '<img src="/images/ranks/'.$playrank.'.png"></img>';
-					// Get beatmap name from md5 (beatmaps_names) for this play
-					$bn = $GLOBALS['db']->fetch('SELECT beatmap_name FROM beatmaps_names WHERE beatmap_md5 = ?', $recentPlays[$i]['beatmap_md5']);
-					if ($bn) {
-						// Beatmap name found, print beatmap name and score
-						echo '<tr>';
-						echo '<td class="success">'.$ranksymbol.'</td>';
-						echo '<td class="success"><p class="text-left">'.current($bn).' <b>'.getScoreMods($recentPlays[$i]['mods']).'</b><small>×'.$recentPlays[$i]['max_combo'].'</small><br><small>'.timeDifference(time(), osuDateToUNIXTimestamp($recentPlays[$i]['time'])).'</small>'.'</p></td>';
-						echo '<td class="success"><p class="text-right">'.accuracy($recentPlays[$i]['accuracy']).'%</p></td>';
-						echo '<td class="success"><p class="text-right"><b>'.number_format($recentPlays[$i]['pp']).' pp</b></p></td>';
-						echo '</tr>';
-					}
-				}
-				echo '</table>';
-			}
+			echo '<br><br><br>';
+
+			// print table skeleton
+			echo '<table class="table" id="recent-plays-table">
+			<tr><th class="text-left"><i class="fa fa-clock-o"></i>	Recent plays</th><th class="text-right">' . $scoringName . '</th></tr>';
+			echo '</table>';
+			echo '<button type="button" class="btn btn-default load-more-user-scores" data-rel="recent" disabled>Show me more!</button></div>';
 		}
 		catch(Exception $e) {
 			echo '<br><div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-triangle"></i>	<b>'.$e->getMessage().'</b></div>';
