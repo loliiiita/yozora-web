@@ -61,6 +61,7 @@ $pages = [
 	new Welcome(),
 	new Leaderboard_Relax(),
 	new Leaderboard_Score(),
+	new CreateClan(),
 ];
 // Set timezone to UTC
 date_default_timezone_set('Europe/Rome');
