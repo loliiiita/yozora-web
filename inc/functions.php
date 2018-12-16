@@ -99,6 +99,41 @@ function redirect($url) {
 function outputVariable($v, $fn = "/tmp/ripple.txt") {
 	file_put_contents($fn, var_export($v, true), FILE_APPEND);
 }
+
+function getPlayRank($id) {
+	$replayData = $GLOBALS['db']->fetch('SELECT * FROM scores WHERE id = ?', [$id]);
+	
+	// Calculate rank
+	$totalNotes = $replayData['300_count'] + $replayData['100_count'] + $replayData['50_count'] + $replayData['misses_count'];
+	$perc300 = number_format($replayData['300_count'], 2) / number_format($totalNotes, 2);
+	$perc50 = number_format($replayData['50_count'], 2) / number_format($totalNotes, 2);
+	$hidden = $replayData['mods'] & ModsEnum::Hidden || $replayData['mods'] & ModsEnum::Flashlight ? true : false;
+	$rank = 'N';
+	if ($perc300 == 1.0) {
+		if ($hidden) {
+			$rank = 'XH';
+		} else {
+			$rank = 'X';
+		}
+	} elseif ($perc300 > 0.9 && $perc40 <= 0.01 && $replayData['misses_count'] == 0) {
+		if ($hidden) {
+			$rank = 'SH';
+		} else {
+			$rank = 'S';
+		}
+	} elseif (($perc300 > 0.8 && $replayData['misses_count'] == 0) || ($perc300 > 0.9)) {
+		$rank = 'A';
+	} elseif (($perc300 > 0.7 && $replayData['misses_count'] == 0) || ($perc300 > 0.8)) {
+		$rank = 'B';
+	} elseif ($perc300 > 0.6) {
+		$rank = 'C';
+	} else {
+		$rank = 'D';
+	}
+	return $rank;
+}
+
+
 /*
  * randomString
  * Generate a random string.
