@@ -104,7 +104,7 @@ if ($p == 27) {
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap select CSS -->
-    <link href=".css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- Slider CSS -->
     <link href="/css/slider.css" rel="stylesheet">
