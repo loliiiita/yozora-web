@@ -50,7 +50,7 @@ function getScores(type) {
 				u += addCommas(v.score);
 			}
 			if (v.completed == 3) {
-				u += ' <a href="/web/replays/' + v.id + '"><i class="fa fa-star"></i></a>';
+				u += ' <a href="/web/replays_relax/' + v.id + '"><i class="fa fa-star"></i></a>';
 			}
 			u += '</b><br>' + small + '</p></td>';
 			u += "</tr>";
