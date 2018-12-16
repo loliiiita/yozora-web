@@ -16,7 +16,7 @@ var bestIndex = 0;
 function getScores(type) {
 	var btn = $(".load-more-user-scores[data-rel='" + type + "']");
 	btn.attr("disabled", "true");
-	$.getJSON("" + type, {
+	$.getJSON("https://rx.yozora.pw/api/v1/users/scores/" + type, {
 		id: UserID,
 		l: 20,
 		p: currentPage[type],
