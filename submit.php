@@ -79,6 +79,9 @@ try {
 		case 'disable2FA':
 			D::Disable2FA();
 		break;
+		case 'createClan':
+			D::createClan();
+		break;
 		default:
 			throw new Exception('Invalid action value');
 		break;

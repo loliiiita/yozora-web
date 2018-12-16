@@ -921,7 +921,25 @@ class D {
 			redirect('index.php?p=5&e='.$e->getMessage());
 		}
 	}
+	public static function createClan() {
+		if (!isset($_POST['c']) || !isset($_POST['t']) {
+			throw new Exception('Invalid Registration');
+		}
+		$clan = $GLOBALS["db"]->fetch("SELECT * FROM clan_users WHERE member_id = ?", $_SESSION['userid'])
+		if ($clan) {
+			throw new Exception('You are already in a clan, please leave it before creating one!');
+		}
+		$clan_owner = $GLOBALS["db"]->fetch("SELECT * FROM clans WHERE clan_owner = ?", $_SESSION['userid']);
+		if ($clan_owner) {
+			throw new Exception('You are already own a clan, please leave it before creating one!');
+		}
 
+		$GLOBALS["db"]->execute("INSERT INTO clans(clan_name, clan_owner, clan_tag) VALUES (?,?,?)");
+		$newClan = $GLOBALS["db"]->fetch("SELECT * FROM clans WHERE clan_owner = ?", $_SESSION['userid']);
+
+		$GLOBALS["db"]->execute("INSERT INTO clan_members(clan_id, member_id) VALUES (?,?)", $newClan["id"], $_SESSION['userid']);
+		redirect('/?s=ok');
+	}
 	/*
 	 * WipeAccount
 	 * Wipes an account
