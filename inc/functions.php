@@ -25,6 +25,7 @@ require_once $df.'/helpers/Schiavo.php';
 require_once $df.'/helpers/APITokens.php';
 // controller system v2
 require_once $df.'/pages/Login.php';
+require_once $df.'/pages/CreateClan.php';
 require_once $df.'/pages/Leaderboard.php';
 require_once $df.'/pages/Leaderboard_Relax.php';
 require_once $df.'/pages/Leaderboard_Score.php';
