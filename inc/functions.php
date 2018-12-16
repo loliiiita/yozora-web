@@ -115,7 +115,7 @@ function getPlayRank($id) {
 		} else {
 			$rank = 'X';
 		}
-	} elseif ($perc300 > 0.9 && $perc40 <= 0.01 && $replayData['misses_count'] == 0) {
+	} elseif ($perc300 > 0.9 && $perc50 <= 0.01 && $replayData['misses_count'] == 0) {
 		if ($hidden) {
 			$rank = 'SH';
 		} else {
