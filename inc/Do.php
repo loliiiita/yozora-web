@@ -913,7 +913,7 @@ class D {
 				throw new Exception(3);
 			}
 			// Resize
-			if (!smart_resize_image($_FILES['file']['tmp_name'], null, 100, 100, false, '../../../go/avatar-server/avatars/'.getUserID($_SESSION['username']).'.png', false, false, 100)) {
+			if (!smart_resize_image($_FILES['file']['tmp_name'], null, 100, 100, false, dirname(dirname(dirname(dirname(__FILE__)))).'/go/avatar-server/avatars/'.getUserID($_SESSION['username']).'.png', false, false, 100)) {
 				throw new Exception(4);
 			}
 			/* "Convert" to png
