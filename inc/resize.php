@@ -119,6 +119,5 @@ function smart_resize_image($file, $string = null, $width = 0, $height = 0, $pro
 		default:
 			return false;
 	}
-
 	return true;
 }
