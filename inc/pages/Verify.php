@@ -25,7 +25,7 @@ class Verify {
 				<h1><i class="fa fa-bus"></i> Almost there...</h1>
 				<p>
 					<b>Your account has been created, but it\'s not active yet!</b> Please log in to <b>Bancho</b> to activate it.
-					You don\'t know how to connect to Ripple? Follow <a target="_blank" href="index.php?p=16&id=1">this guide</a>!<br>
+					You don\'t know how to connect to Ripple? Follow <a target="_blank" href="/p/16&id=1">this guide</a>!<br>
 				</p>
 				<div class="alert alert-danger animated shake">
 					<i class="fa fa-exclamation-triangle"></i>

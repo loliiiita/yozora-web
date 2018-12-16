@@ -34,7 +34,7 @@ if (isset($_GET['p'])) {
 				if ($page::LoggedIn) {
 					clir();
 				} else {
-					clir(true, 'index.php?p=1&e=1');
+					clir(true, '/p/1&e=1');
 				}
 			}
 			break;
@@ -479,7 +479,7 @@ switch ($p) {
 					}).done(function(data) {
 						console.log(data["result"]);
 						if (data["result"] == 1 || data["result"] == 0) {
-							window.location.replace("index.php?p=39&u='.$_GET["u"].'");
+							window.location.replace("/p/39&u='.$_GET["u"].'");
 						}
 					});
 				}, 5000);';

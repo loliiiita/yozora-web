@@ -11,6 +11,6 @@ class DeleteApplication {
 				[$_GET['id'], $_SESSION['userid']]);
 			addSuccess("That application was deleted.");
 		}
-		redirect('index.php?p=32');
+		redirect('/p/32');
 	}
 }

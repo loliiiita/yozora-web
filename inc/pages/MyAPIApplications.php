@@ -22,14 +22,14 @@ class MyAPIApplications {
 			} else {
 				echo '<ul style="text-align:left;">';
 				foreach ($myApps as $app) {
-					echo "<li><a href='index.php?p=33&id=$app[id]'>" . (trim($app['name']) == '' ? "(No title)" : htmlentities($app['name'])) . "</a></li>";
+					echo "<li><a href='/p/33&id=$app[id]'>" . (trim($app['name']) == '' ? "(No title)" : htmlentities($app['name'])) . "</a></li>";
 				}
 				echo '</ul>';
 			}
 			?><?php
 			$els = [];
-			if ($p > 0) $els[] = '<a href="index.php?p=32&page=' . ($p - 1) . '">Previous page</a>';
-			if (count($myApps) >= 50) $els[] = '<a href="index.php?p=32&page=' . ($p + 1) . '">Next page</a>';
+			if ($p > 0) $els[] = '<a href="/p/32&page=' . ($p - 1) . '">Previous page</a>';
+			if (count($myApps) >= 50) $els[] = '<a href="/p/32&page=' . ($p + 1) . '">Next page</a>';
 			if (count($els) > 0) echo '<br><br>' . implode(' | ', $els);
 			?><br><br>
 			<a href="/submit.php?action=myApplications"><button type="button" class="btn btn-primary">New application</button></a>
@@ -43,6 +43,6 @@ class MyAPIApplications {
 		$GLOBALS['db']->execute('INSERT INTO api_applications(owner, name, description, oauth_token)
 			VALUES(?, "", "", ?)', [$_SESSION['userid'], md5($oauth_token)]);
 		addSuccess("Application generated! Edit the applications to change its details.<br>The token is <code>$oauth_token</code>. Keep it safe, don't show it around, and store it now! We won't show it to you again.");
-		redirect('index.php?p=32');
+		redirect('/p/32');
 	}
 }

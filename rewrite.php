@@ -10,7 +10,7 @@ switch ($uri[1]) {
 		// Redirect to userpage
 
 	case 'u':
-		redirect('../index.php?u='.$uri[2]);
+		redirect('..//u/'.$uri[2]);
 	break;
 		// Redirect to bloodcat map download
 

@@ -76,7 +76,7 @@ class P {
 			$pm = getPlaymodeText($play['play_mode']);
 			// Print row
 			echo '<tr class="success">';
-			echo '<td><p class="text-left"><b><a href="index.php?u='.$play["username"].'">'.$play['username'].'</a></b></p></td>';
+			echo '<td><p class="text-left"><b><a href="/u/'.$play["username"].'">'.$play['username'].'</a></b></p></td>';
 			echo '<td><p class="text-left">'.$bn.' <b>' . getScoreMods($play['mods']) . '</b></p></td>';
 			echo '<td><p class="text-left">'.$pm.'</p></td>';
 			echo '<td><p class="text-left">'.timeDifference(time(), $play['time']).'</p></td>';
@@ -103,7 +103,7 @@ class P {
 			$pm = getPlaymodeText($play['play_mode']);
 			// Print row
 			echo '<tr class="warning">';
-			echo '<td><p class="text-left"><a href="index.php?u='.$play["username"].'"><b>'.$play['username'].'</b></a></p></td>';
+			echo '<td><p class="text-left"><a href="/u/'.$play["username"].'"><b>'.$play['username'].'</b></a></p></td>';
 			echo '<td><p class="text-left">'.$bn.' <b>' . getScoreMods($play['mods']) . '</b></p></td>';
 			echo '<td><p class="text-left">'.$pm.'</p></td>';
 			echo '<td><p class="text-left">'.timeDifference(time(), $play['time']).'</p></td>';
@@ -154,7 +154,7 @@ class P {
 		// Quick edit/silence/kick user button
 		echo '<br><p align="center" class="mobile-flex"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quickEditUserModal">Quick edit user (username)</button>';
 		echo '<button type="button" class="btn btn-info" data-toggle="modal" data-target="#quickEditEmailModal">Quick edit user (email)</button>';
-		echo '<a href="index.php?p=135" type="button" class="btn btn-warning">Search user by IP</a>';
+		echo '<a href="/p/135" type="button" class="btn btn-warning">Search user by IP</a>';
 		echo '<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#silenceUserModal">Silence user</button>';
 		echo '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#kickUserModal">Kick user from Bancho</button>';
 		echo '</p>';
@@ -201,7 +201,7 @@ class P {
 			echo '<td><p class="text-center"><span class="label label-'.$allowedColor.'">'.$allowedText.'</span></p></td>';
 			echo '<td><p class="text-center">
 			<div class="btn-group-justified">
-			<a title="Edit user" class="btn btn-xs btn-primary" href="index.php?p=103&id='.$user['id'].'"><span class="glyphicon glyphicon-pencil"></span></a>';
+			<a title="Edit user" class="btn btn-xs btn-primary" href="/p/103&id='.$user['id'].'"><span class="glyphicon glyphicon-pencil"></span></a>';
 			if (hasPrivilege(Privileges::AdminBanUsers)) {
 				if (isBanned($user["id"])) {
 					echo '<a title="Unban user" class="btn btn-xs btn-success" onclick="sure(\'/submit.php?action=banUnbanUser&id='.$user['id'].'&csrf=' . csrfToken() . '\')"><span class="glyphicon glyphicon-thumbs-up"></span></a>';
@@ -214,13 +214,13 @@ class P {
 					echo '<a title="Restrict user" class="btn btn-xs btn-warning" onclick="sure(\'/submit.php?action=restrictUnrestrictUser&id='.$user['id'].'&csrf='.csrfToken().'\')"><span class="glyphicon glyphicon-remove-circle"></span></a>';
 				}
 			}
-			echo '	<a title="Change user identity" class="btn btn-xs btn-danger" href="index.php?p=104&id='.$user['id'].'"><span class="glyphicon glyphicon-refresh"></span></a>
+			echo '	<a title="Change user identity" class="btn btn-xs btn-danger" href="/p/104&id='.$user['id'].'"><span class="glyphicon glyphicon-refresh"></span></a>
 			</div>
 			</p></td>';
 			echo '</tr>';
 		}
 		echo '</tbody></table>';
-		echo '<p align="center"><a href="index.php?p=102&from='.($from-($pageInterval+1)).'">< Previous page</a> | <a href="index.php?p=102&from='.($to).'">Next page ></a></p>';
+		echo '<p align="center"><a href="/p/102&from='.($from-($pageInterval+1)).'">< Previous page</a> | <a href="/p/102&from='.($to).'">Next page ></a></p>';
 		echo '</div>';
 		// Quick edit modal
 		echo '<div class="modal fade" id="quickEditUserModal" tabindex="-1" role="dialog" aria-labelledby="quickEditUserModalLabel">
@@ -409,7 +409,7 @@ class P {
 				$selectDisabled = 'disabled';
 			} elseif (($userData["privileges"] & Privileges::AdminManageUsers) > 0) {
 				// We are trying to edit a user with same/higher rank than us :akerino:
-				redirect("index.php?p=102&e=You don't have enough permissions to edit this user");
+				redirect("/p/102&e=You don't have enough permissions to edit this user");
 				die();
 			}
 			// Print edit user stuff
@@ -605,7 +605,7 @@ class P {
 			<i>(visible only from RAP)</i></td>
 			<td><textarea name="ncm" class="form-control" style="overflow:auto;resize:vertical;height:500px">' . $userData["notes"] . '</textarea></td>
 			</tr>';
-			echo '<tr><td>IPs<br><i><a href="index.php?p=136&uid=' . $_GET["id"] . '">(search users with these IPs)</a></i></td><td><ul>';
+			echo '<tr><td>IPs<br><i><a href="/p/136&uid=' . $_GET["id"] . '">(search users with these IPs)</a></i></td><td><ul>';
 			foreach ($ips as $ip) {
 				echo "<li>$ip[ip] <a class='getcountry' data-ip='$ip[ip]' title='Click to retrieve IP country'>(?)</a></li>";
 			}
@@ -624,16 +624,16 @@ class P {
 							<a title="Pin/Unpin" class="unpin btn btn-xs btn-primary no-mobile"><span class="glyphicon glyphicon-pushpin"></span></a></li>
 							<li class="list-group-item mobile-flex">';
 								if (hasPrivilege(Privileges::AdminManageBadges)) {
-									echo '<a href="index.php?p=110&id='.$_GET['id'].'" class="btn btn-success">Edit badges</a>';
+									echo '<a href="/p/110&id='.$_GET['id'].'" class="btn btn-success">Edit badges</a>';
 								}
-								echo '	<a href="index.php?p=104&id='.$_GET['id'].'" class="btn btn-info">Change identity</a>';
+								echo '	<a href="/p/104&id='.$_GET['id'].'" class="btn btn-info">Change identity</a>';
 								if (hasPrivilege(Privileges::UserDonor, $_GET["id"])) {
 									echo '	<a onclick="sure(\'/submit.php?action=removeDonor&id='.$_GET['id'].'&csrf='.csrfToken().'\');" class="btn btn-danger">Remove donor</a>';
 								}
-								echo '	<a href="index.php?p=121&id='.$_GET['id'].'" class="btn btn-warning">Give donor</a>';
-								echo '	<a href="index.php?u='.$_GET['id'].'" class="btn btn-primary">View profile</a>';
+								echo '	<a href="/p/121&id='.$_GET['id'].'" class="btn btn-warning">Give donor</a>';
+								echo '	<a href="/u/'.$_GET['id'].'" class="btn btn-primary">View profile</a>';
 								if (hasPrivilege(Privileges::AdminManageUsers)) {
-									echo '	<a href="index.php?p=132&uid=' . $_GET['id'] . '" class="btn btn-danger">View anticheat reports</a>';
+									echo '	<a href="/p/132&uid=' . $_GET['id'] . '" class="btn btn-danger">View anticheat reports</a>';
 								}
 							echo '</li>
 						</ul>';
@@ -642,9 +642,9 @@ class P {
 						<li class="list-group-item list-group-item-danger">Dangerous Zone</li>
 						<li class="list-group-item mobile-flex">';
 						if (hasPrivilege(Privileges::AdminWipeUsers)) {
-							echo '	<a href="index.php?p=123&id='.$_GET["id"].'" class="btn btn-danger">Wipe account</a>';
-							echo '	<a href="index.php?p=122&id='.$_GET["id"].'" class="btn btn-danger">Rollback account</a>';
-							echo '	<a href="index.php?p=134&id='.$_GET["id"].'" class="btn btn-danger">Restore scores</a>';
+							echo '	<a href="/p/123&id='.$_GET["id"].'" class="btn btn-danger">Wipe account</a>';
+							echo '	<a href="/p/122&id='.$_GET["id"].'" class="btn btn-danger">Rollback account</a>';
+							echo '	<a href="/p/134&id='.$_GET["id"].'" class="btn btn-danger">Restore scores</a>';
 						}
 						if (hasPrivilege(Privileges::AdminBanUsers)) {
 							echo '	<a onclick="sure(\'/submit.php?action=banUnbanUser&id='.$_GET['id'].'&csrf=' . csrfToken() . '\')" class="btn btn-danger">(Un)ban user</a>';
@@ -653,7 +653,7 @@ class P {
 							echo '	<a onclick="sure(\'/submit.php?action=clearHWID&id='.$_GET['id'].'&csrf='.csrfToken().'\');" class="btn btn-danger">Clear HWID matches</a>';
 						}
 						if (hasPrivilege(Privileges::AdminCaker)) {
-							echo '<a href="index.php?p=128&uid=' . $_GET["id"] . '" class="btn btn-danger">Find ' . Fringuellina::$cakeRecipeName . '</a>';
+							echo '<a href="/p/128&uid=' . $_GET["id"] . '" class="btn btn-danger">Find ' . Fringuellina::$cakeRecipeName . '</a>';
 						}
 						echo '		<a onclick="sure(\'/submit.php?action=toggleCustomBadge&id='.$_GET['id'].'&csrf='.csrfToken().'\');" class="btn btn-danger">'.(($userStatsData["can_custom_badge"] == 1) ? "Revoke" : "Grant").' custom badge</a>';
 						echo '<br>
@@ -666,7 +666,7 @@ class P {
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -725,7 +725,7 @@ class P {
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -832,7 +832,7 @@ class P {
 		echo '<!-- <a style="width: 100%;" href="index.php" class="btn btn-warning"><i class="fa fa-thermometer-empty"></i>	<b>Unfreeze and uncache A/Q/L maps</b></a> -->
 		</td>
 		</tr>';
-		echo '<tr class="success"><td colspan=2><p align="center">Click <a href="index.php?p=111">here</a> for bancho settings</p></td></tr>';
+		echo '<tr class="success"><td colspan=2><p align="center">Click <a href="/p/111">here</a> for bancho settings</p></td></tr>';
 		echo '</tbody></form>';
 		echo '</table>';
 		echo '<div class="text-center"><div class="btn-group" role="group">
@@ -876,7 +876,7 @@ class P {
 			<td><p class="text-center"><i class="fa '.$badge['icon'].' fa-2x"></i></p></td>
 			<td><p class="text-center">
 			<div class="btn-group-justified">
-			<a title="Edit badge" class="btn btn-xs btn-primary" href="index.php?p=109&id='.$badge['id'].'"><span class="glyphicon glyphicon-pencil"></span></a>
+			<a title="Edit badge" class="btn btn-xs btn-primary" href="/p/109&id='.$badge['id'].'"><span class="glyphicon glyphicon-pencil"></span></a>
 			<a title="Delete badge" class="btn btn-xs btn-danger" onclick="sure(\'/submit.php?action=removeBadge&id='.$badge['id'].'&csrf='.csrfToken().'\');"><span class="glyphicon glyphicon-trash"></span></a>
 			</div>
 			</p></td>
@@ -885,7 +885,7 @@ class P {
 		echo '</tbody>';
 		echo '</table>';
 		echo '<div class="text-center">
-			<a href="index.php?p=109&id=0" type="button" class="btn btn-primary">Add a new badge</a>
+			<a href="/p/109&id=0" type="button" class="btn btn-primary">Add a new badge</a>
 			<a type="button" class="btn btn-success" data-toggle="modal" data-target="#quickEditUserBadgesModal">Edit user badges</a>
 		</div>';
 		echo '</div>';
@@ -968,7 +968,7 @@ class P {
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -1024,7 +1024,7 @@ class P {
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -1208,11 +1208,11 @@ class P {
 		echo '</div>';
 		echo '<br><br><p align="center">';
 		if (!$first)
-			echo '<a href="index.php?p=116&from=' .($from+$pageInterval) . '">< Prev page</a>';
+			echo '<a href="/p/116&from=' .($from+$pageInterval) . '">< Prev page</a>';
 		if (!$first && $logs)
 			echo ' | ';
 		if ($logs)
-			echo '<a href="index.php?p=116&from=' . $to . '">Next page</a> ></p>';
+			echo '<a href="/p/116&from=' . $to . '">Next page</a> ></p>';
 		// Template end
 		echo '</div>';
 	}
@@ -1394,50 +1394,6 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			// Get userpage
 			$userpageContent = $userData['userpage_content'];
 
-			// seriosuly fuck this shit who the fuck thought it was sane to write this fucking piece
-			// of fucking shit like holy titties fuck tits cock the whole code of oldfrontend is absolutely
-			// fucked but i still can't believe how FUCKED the code of the user profiles are why are they
-			// even called userpages in this fucking code they're supposed to be profiles not pages
-			// userpages are the ones with custom data written in bbcode
-			// why are userpages in bbcode
-			// like
-			// markdown is much superior
-			// anyway
-			// you might wonder why the fuck i am doing the next thing
-			// and that is $u used to always be an userid
-			// and then changes happened and the validation to check $_GET["u"] was an username or
-			// an userid was moved into the userpage() function
-			// problem is though
-			// i forgot there was another check of more or less the same thing in functions.php
-			// (fuck functions.php by the way)
-			// and so yeah
-			// $u then became either an username or an userid
-			// except I didn't know it was used in other places apart from the initial lookup of the user.
-			// fuck
-			// this
-			// gay
-			// earth
-			// https://www.youtube.com/watch?v=HnrjygAG18o
-			// TOOONIGHT IM GONNA HAVE MYSELF A REAL GOOD TIME
-			// I FEEL ALIIIVE AH AH AAAH
-			// AND THE WORLD
-			// IS TURNING INSIDE OUT YEAH
-			// I'M FLOATING AROUND IN ECSTASY
-			// SO DON'T STOP ME NOW
-			// SO DON'T STOP ME NOW
-			// CAUSE IM HAVING A GOOD TIME
-			// HAVING A GOOD TIME
-			// I'M A SUPERSTARE LEAKING THROUGH THE SKYES LIKE A TIGER
-			// DEFYING THE LAWS OF GRAVITY'
-			// I'M A RACING CAR PASSING BY LIKE LADY GODDIVA
-			// I GOTTA GO
-			// GO
-			// GO
-			// THERE'S NO STOPPING ME
-			// Now that I filled my whole screen with this comment I can finally procede writing
-			// some more shitty code
-			// I hope my nonsense has made your day
-			// And don't you dare post this on reddit.
 			$u = $userData["id"];
 
 			// Friend button
@@ -1488,7 +1444,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 							<div class="panel-heading">
 								<button type="button" class="btn btn-default btn-xs spoiler-trigger" data-toggle="collapse">Expand userpage</button>';
 				if (checkLoggedIn() && $username == $_SESSION['username']) {
-					echo '	<a href="index.php?p=8" type="button" class="btn btn-default btn-xs"><i>Edit</i></a>';
+					echo '	<a href="/p/8" type="button" class="btn btn-default btn-xs"><i>Edit</i></a>';
 				}
 				echo '</div>
 							<div class="panel-collapse collapse '.$ct.'">
@@ -1512,11 +1468,11 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			if ($usernameAka != '') {
 				echo '<small><i>A.K.A '.htmlspecialchars($usernameAka).'</i></small>';
 			}
-			echo '<br><a href="index.php?u='.$u.'&m=0">'.$modesText[0].'</a> | <a href="index.php?u='.$u.'&m=1">'.$modesText[1].'</a> | <a href="index.php?u='.$u.'&m=2">'.$modesText[2].'</a> | <a href="index.php?u='.$u.'&m=3">'.$modesText[3].'</a>';
+			echo '<br><a href="/u/'.$u.'&m=0">'.$modesText[0].'</a> | <a href="/u/'.$u.'&m=1">'.$modesText[1].'</a> | <a href="/u/'.$u.'&m=2">'.$modesText[2].'</a> | <a href="/u/'.$u.'&m=3">'.$modesText[3].'</a>';
 
 			echo "<br>";
 			if (hasPrivilege(Privileges::AdminManageUsers)) {
-				echo '<a href="index.php?p=103&id='.$u.'">Edit user</a> | <a href="index.php?p=110&id='.$u.'">Edit badges</a>';
+				echo '<a href="/p/103&id='.$u.'">Edit user</a> | <a href="/p/110&id='.$u.'">Edit badges</a>';
 			}
 			if (hasPrivilege(Privileges::AdminBanUsers)) {
 				echo ' | <a onclick="sure(\'/submit.php?action=banUnbanUser&id='.$u.'&csrf=' . csrfToken() . '\')";>Ban user</a> | <a onclick="sure(\'/submit.php?action=restrictUnrestrictUser&id='.$u.'&csrf='.csrfToken().'\')";>Restrict user</a>';
@@ -1806,14 +1762,14 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				echo '<div class="container alert alert-warning" role="alert" style="width: 100%;"><p align="center">Since I love delivering completely random quotes:<br><i>if you keep going the way you are now... you\'re gonna have a bad time.</i></p></div>';
 			} else {
 				$multiName = $multiThing["username"];
-				redirect("/index.php?p=41&user=" . $multiName);
+				redirect("//p/41&user=" . $multiName);
 			}
 		} else if (!$errors) {
 			// Print default warning message if we have no exception/success/multiacc warn
 			echo '<p>Please fill every field in order to sign up.<br>';
 		}
-		echo '<div class="alert alert-danger animated shake" role="alert"><b><i class="fa fa-gavel"></i>	Please read the <a href="index.php?p=23" target="_blank">rules</a> before creating an account.</b></div>
-		<a href="index.php?p=16&id=1" target="_blank">Need some help?</a></p>';
+		echo '<div class="alert alert-danger animated shake" role="alert"><b><i class="fa fa-gavel"></i>	Please read the <a href="/p/23" target="_blank">rules</a> before creating an account.</b></div>
+		<a href="/p/16&id=1" target="_blank">Need some help?</a></p>';
 		// Print register form
 		echo '	<form action="/submit.php" method="POST">
 		<input name="csrf" type="hidden" value="'.csrfToken().'">
@@ -2250,7 +2206,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			foreach ($friends as $friend) {
 				$uname = $friend['username'];
 				$mutualIcon = ($friend['user2'] == 999 || getFriendship($friend['user2'], $ourID, true) == 2) ? '<i class="fa fa-heart"></i>' : '';
-				echo '<tr><td><div align="center"><a href="index.php?u='.$friend['user2'].'">'.$uname.'</a></div></td><td><div align="center">'.$mutualIcon.'</div></td></tr>';
+				echo '<tr><td><div align="center"><a href="/u/'.$friend['user2'].'">'.$uname.'</a></div></td><td><div align="center">'.$mutualIcon.'</div></td></tr>';
 			}
 			echo '</tbody></table>';
 		}
@@ -2376,7 +2332,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<td>".timeDifference(time(), $req["time"])."</td>
 				<td>
 					<p class='text-center'>
-						<a title='Edit ranked status' class='btn btn-xs btn-primary' href='index.php?p=124&bsid=$bsid&force=".$forceParam."'><span class='glyphicon glyphicon-pencil'></span></a>
+						<a title='Edit ranked status' class='btn btn-xs btn-primary' href='/p/124&bsid=$bsid&force=".$forceParam."'><span class='glyphicon glyphicon-pencil'></span></a>
 						<a title='Toggle blacklist' class='btn btn-xs btn-danger' href='/submit.php?action=blacklistRankRequest&id=$req[id]&csrf=".csrfToken()."'><span class='glyphicon glyphicon-flag'></span></a>
 					</p>
 				</td>
@@ -2421,9 +2377,9 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 					<td style='text-align: center;'>$group[privileges]</td>
 					<td style='text-align: center;'>
 						<div class='btn-group-justified'>
-							<a href='index.php?p=119&id=$group[id]' title='Edit' class='btn btn-xs btn-primary'><span class='glyphicon glyphicon-pencil'></span></a>
-							<a href='index.php?p=119&h=$group[id]' title='Inherit' class='btn btn-xs btn-warning'><span class='glyphicon glyphicon-copy'></span></a>
-							<a href='index.php?p=120&id=$group[id]' title='View users in this group' class='btn btn-xs btn-success'><span class='glyphicon glyphicon-search'></span></a>
+							<a href='/p/119&id=$group[id]' title='Edit' class='btn btn-xs btn-primary'><span class='glyphicon glyphicon-pencil'></span></a>
+							<a href='/p/119&h=$group[id]' title='Inherit' class='btn btn-xs btn-warning'><span class='glyphicon glyphicon-copy'></span></a>
+							<a href='/p/120&id=$group[id]' title='View users in this group' class='btn btn-xs btn-success'><span class='glyphicon glyphicon-search'></span></a>
 						</div>
 					</td>
 				</tr>";
@@ -2431,7 +2387,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		echo '</tbody>
 		</table>';
 
-		echo '<a href="index.php?p=119" type="button" class="btn btn-primary">New group</a>';
+		echo '<a href="/p/119" type="button" class="btn btn-primary">New group</a>';
 
 		echo '</div>';
 		// Template end
@@ -2528,7 +2484,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=119&e='.$e->getMessage());
+			redirect('/p/119&e='.$e->getMessage());
 		}
 	}
 
@@ -2564,7 +2520,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			foreach ($users as $user) {
 				echo "<tr>
 						<td style='text-align: center;'>$user[id]</td>
-						<td style='text-align: center;'><a href='index.php?u=$user[id]'>$user[username]</a></td>
+						<td style='text-align: center;'><a href='/u/$user[id]'>$user[username]</a></td>
 					</tr>";
 			}
 			echo '</tbody>
@@ -2574,7 +2530,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			// Template end
 			echo '</div>';
 		} catch(Exception $e) {
-			redirect("index.php?p=118?e=".$e->getMessage());
+			redirect("/p/118?e=".$e->getMessage());
 		}
 	}
 
@@ -2586,7 +2542,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 
 		if (!hasPrivilege(Privileges::UserPublic)) {
 			echo '<div class="alert alert-danger" role="alert">
-					<p align="center"><i class="fa fa-exclamation-triangle"></i><b>Your account is currently in restricted mode</b> due to inappropriate behavior or a violation of the <a href=\'index.php?p=23\'>rules</a>.<br>You can\'t interact with other users, you can perform limited actions and your user profile and scores are hidden.<br>Read the <a href=\'index.php?p=23\'>rules</a> again carefully, and if you think this is an error, send an email to <b>support@ripple.moe</b>.</p>
+					<p align="center"><i class="fa fa-exclamation-triangle"></i><b>Your account is currently in restricted mode</b> due to inappropriate behavior or a violation of the <a href=\'/p/23\'>rules</a>.<br>You can\'t interact with other users, you can perform limited actions and your user profile and scores are hidden.<br>Read the <a href=\'/p/23\'>rules</a> again carefully, and if you think this is an error, send an email to <b>support@ripple.moe</b>.</p>
 				  </div>';
 		}
 	}
@@ -2647,7 +2603,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -2706,7 +2662,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -2765,7 +2721,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -2800,7 +2756,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=117&e='.$e->getMessage());
+			redirect('/p/117&e='.$e->getMessage());
 		}
 	}
 
@@ -2878,13 +2834,13 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			}
 			echo '<tr class="' . $rowClass . '">
 			<td><p class="text-center">'.$report['id'].'</p></td>
-			<td><p class="text-center"><a href="index.php?u=' . $report["from_uid"] . '" target="_blank">'.getUserUsername($report['from_uid']).'</a></p></td>
-			<td><p class="text-center"><b><a href="index.php?u=' . $report["to_uid"] . '" target="_blank">'.getUserUsername($report['to_uid']).'</a></b></p></td>
+			<td><p class="text-center"><a href="/u/' . $report["from_uid"] . '" target="_blank">'.getUserUsername($report['from_uid']).'</a></p></td>
+			<td><p class="text-center"><b><a href="/u/' . $report["to_uid"] . '" target="_blank">'.getUserUsername($report['to_uid']).'</a></b></p></td>
 			<td><p>'.htmlspecialchars(substr($report['reason'], 0, 40)).'</p></td>
 			<td><p>'.timeDifference(time(), $report['time']).'</p></td>
 			<td><p class="text-center">' . $assignee . '</p></td>
 			<td><p class="text-center">
-			<a title="View/Edit report" class="btn btn-xs btn-primary" href="index.php?p=127&id='.$report['id'].'"><span class="glyphicon glyphicon-zoom-in"></span></a>
+			<a title="View/Edit report" class="btn btn-xs btn-primary" href="/p/127&id='.$report['id'].'"><span class="glyphicon glyphicon-zoom-in"></span></a>
 			<!-- <a title="Set as solved" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></a>-->
 			</p></td>
 			</tr>';
@@ -2944,7 +2900,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			}
 			echo '<p align="center">
 				<h2><i class="fa fa-flag"></i>	View report</h2>
-				<h4><a href="index.php?p=126"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Back</a></h4>
+				<h4><a href="/p/126"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Back</a></h4>
 			</p>';
 
 			echo '<br>';
@@ -2958,7 +2914,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 					</tr>
 					<tr>
 						<td><b>Reported user</b></td>
-						<td><a href="index.php?u=' . $report["to_uid"] . '" target="_blank" class="badguy">' . getUserUsername($report["to_uid"]) . '</a></td>
+						<td><a href="/u/' . $report["to_uid"] . '" target="_blank" class="badguy">' . getUserUsername($report["to_uid"]) . '</a></td>
 					</tr>
 					<tr>
 						<td><b>Reason</b></td>
@@ -2996,7 +2952,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<ul class="list-group">
 					<li class="list-group-item list-group-item-danger">Quick actions</li>
 					<li class="list-group-item mobile-flex">
-						<a class="btn btn-primary" href="index.php?p=103&id=' . $report["to_uid"] . '"><i class="fa fa-expand"></i> View reported user in RAP</a>
+						<a class="btn btn-primary" href="/p/103&id=' . $report["to_uid"] . '"><i class="fa fa-expand"></i> View reported user in RAP</a>
 						<div class="btn btn-warning" data-toggle="modal" data-target="#silenceUserModal" data-who="' . getUserUsername($report["to_uid"]) . '"><i class="fa fa-microphone-slash"></i> Silence reported user</div>
 						<div class="btn btn-warning" data-toggle="modal" data-target="#silenceUserModal" data-who="' . getUserUsername($report["from_uid"]) . '"><i class="fa fa-microphone-slash"></i> Silence source user</div>
 						';
@@ -3066,7 +3022,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			</div>
 			</div>';
 		} catch (Exception $e) {
-			redirect("index.php?p=126&e=" . $e->getMessage());
+			redirect("/p/126&e=" . $e->getMessage());
 		}
 
 	}
@@ -3140,7 +3096,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				$severityColor = $report["severity"] >= 0.75 ? 'danger' : ($report["severity"] <= 0.25 ? 'primary' : 'warning');
 				echo "<tr class='$severityColor'>
 					<td><p class='text-center'>$report[id]</p></td>";
-					if ($all) echo "<td><p class='text-center'><a href='index.php?u=" . $report["userid"] . "'>$report[username]</a></p></td>";
+					if ($all) echo "<td><p class='text-center'><a href='/u/" . $report["userid"] . "'>$report[username]</a></p></td>";
 					echo "<td><p class='text-center'>" . timeDifference(time(), $report["time"]) . "</p></td>
 					<td><p class='text-center'><a href='" . URL::Server() . "/web/replays/$report[score_id]'>$report[score_id]	<i class='fa fa-star'></i></a></p></td>
 					<td><p class='text-center'>" . getPlaymodeText($report["play_mode"], true) . "</p></td>
@@ -3149,7 +3105,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 					<td><p class='text-center'>$report[name]</p></td>
 					<td><p class='text-center'><span class='label label-$severityColor'>$report[severity]</span></p></td>
 					<td><p class='text-center'>
-						<a title='View details' class='btn btn-xs btn-primary' href='index.php?p=133&id=$report[id]'><span class='glyphicon glyphicon-search'></span></a>
+						<a title='View details' class='btn btn-xs btn-primary' href='/p/133&id=$report[id]'><span class='glyphicon glyphicon-search'></span></a>
 					</p></td>
 				</tr>";
 			}
@@ -3178,7 +3134,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				if (!$rid) {
 					throw new Exception("No anticheat reports for this score");
 				}
-				redirect("index.php?p=133&id=$rid");
+				redirect("/p/133&id=$rid");
 			}
 			if (!isset($_GET["id"]) || empty($_GET["id"])) {
 				throw new Exception("Missing anticheat report id id");
@@ -3214,7 +3170,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<table class='table table-striped table-hover table-75-center'><tbody>
 					<tr>
 						<td>User</td>
-						<td><a href='index.php?u=$report[userid]'>$report[username]</a></td>
+						<td><a href='/u/$report[userid]'>$report[username]</a></td>
 					</tr>
 					<tr>
 						<td>When</td>
@@ -3261,7 +3217,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			echo '</div>';
 			echo '</div>';
 		} catch (Exception $e) {
-			redirect("index.php?p=132&e=" . $e->getMessage());
+			redirect("/p/132&e=" . $e->getMessage());
 		}
 	}
 
@@ -3418,7 +3374,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		}
 		catch(Exception $e) {
 			// Redirect to exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -3438,7 +3394,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 
 		echo '
 		<div class="narrow-content">
-			<form action="index.php?p=136" method="POST">
+			<form action="/p/136" method="POST">
 				<input name="csrf" type="hidden" value="'.csrfToken().'">
 				<div>
 					Specify 1 IP per line
@@ -3519,7 +3475,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				}
 				echo "<tr class='" . ($userFilter && $row["userid"] != $_GET["uid"] ? "danger bold" : "") . "'>
 				<td>$row[ip] <a class='getcountry' data-ip='$row[ip]'>(?)</a></td>
-				<td><a href='index.php?p=103&id=$row[userid]' target='_blank'>$row[username]</a> <i>($row[userid])</i></td>
+				<td><a href='/p/103&id=$row[userid]' target='_blank'>$row[username]</a> <i>($row[userid])</i></td>
 				<td><span class='label label-$groupColor'>$groupText</span></td>
 				<td>$row[occurencies]</td>
 				</tr>";
@@ -3556,7 +3512,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			echo '</div>';
 			echo '</div>';
 		} catch (Exception $e) {
-			redirect('index.php?p=135&e='.$e->getMessage());
+			redirect('/p/135&e='.$e->getMessage());
 		}
 	}
 }

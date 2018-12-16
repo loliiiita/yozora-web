@@ -105,13 +105,13 @@ class D {
 			setYCookie($uid);
 			// log user ip
 			logIP($uid);
-			//addSuccess("You should now be signed up! Try to <a href='index.php?p=2'>login</a>.");
+			//addSuccess("You should now be signed up! Try to <a href='/p/2'>login</a>.");
 			// All fine, done
-			redirect('index.php?p=38&u='.$uid);
+			redirect('/p/38&u='.$uid);
 		} catch(Exception $e) {
 			// Redirect to Exception page
 			addError($e->getMessage());
-			redirect('index.php?p=3&iseethestopsign=1');
+			redirect('/p/3&iseethestopsign=1');
 		}
 	}
 
@@ -142,12 +142,12 @@ class D {
 			$_SESSION['passwordChanged'] = true;
 			// Redirect to success page
 			addSuccess('Password changed!');
-			redirect('index.php?p=7');
+			redirect('/p/7');
 		}
 		catch(Exception $e) {
 			addError($e->getMessage());
 			// Redirect to Exception page
-			redirect('index.php?p=7');
+			redirect('/p/7');
 		}
 	}
 
@@ -173,11 +173,11 @@ class D {
 			$key = randomString(80);
 			$GLOBALS['db']->execute('INSERT INTO password_recovery (k, u) VALUES (?, ?);', [$key, $username]);
 			$mailer = new SimpleMailgun($MailgunConfig);
-			$mailer->Send('Ripple <noreply@'.$MailgunConfig['domain'].'>', $user['email'], 'Ripple password recovery instructions', sprintf("Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. Otherwise, silently ignore this email.", $username, 'http://'.$_SERVER['HTTP_HOST'].'/index.php?p=19&k='.$key.'&user='.$username));
-			redirect('index.php?p=18&s=sent');
+			$mailer->Send('Ripple <noreply@'.$MailgunConfig['domain'].'>', $user['email'], 'Ripple password recovery instructions', sprintf("Hey %s! Someone, which we really hope was you, requested a password reset for your account. In case it was you, please <a href='%s'>click here</a> to reset your password on Ripple. Otherwise, silently ignore this email.", $username, 'http://'.$_SERVER['HTTP_HOST'].'/p/19&k='.$key.'&user='.$username));
+			redirect('/p/18&s=sent');
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=18&e='.$e->getMessage());
+			redirect('/p/18&e='.$e->getMessage());
 		}
 	}
 
@@ -231,11 +231,11 @@ class D {
 			// RAP log
 			rapLog("has updated system settings");
 			// Done, redirect to success page
-			redirect('index.php?p=101&s=Settings saved!');
+			redirect('/p/101&s=Settings saved!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=101&e='.$e->getMessage());
+			redirect('/p/&e='.$e->getMessage());
 		}
 	}
 
@@ -295,11 +295,11 @@ class D {
 			// Rap log
 			rapLog("has updated bancho settings");
 			// Done, redirect to success page
-			redirect('index.php?p=111&s=Settings saved!');
+			redirect('/p/111&s=Settings saved!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=111&e='.$e->getMessage());
+			redirect('/p/111&e='.$e->getMessage());
 		}
 	}
 
@@ -390,11 +390,11 @@ class D {
 			// RAP log
 			rapLog(sprintf("has edited user %s", $_POST["u"]));
 			// Done, redirect to success page
-			redirect('index.php?p=102&s=User edited!');
+			redirect('/p/102&s=User edited!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -437,11 +437,11 @@ class D {
 			// Rap log
 			rapLog(sprintf("has %s user %s", ($newPrivileges & Privileges::UserNormal) > 0 ? "unbanned" : "banned", $userData["username"]));
 			// Done, redirect to success page
-			redirect('index.php?p=102&s=User banned/unbanned/activated!');
+			redirect('/p/102&s=User banned/unbanned/activated!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -462,11 +462,11 @@ class D {
 				throw new Exception("That user doesn't exist");
 			}
 			// Done, redirect to edit page
-			redirect('index.php?p=103&id='.$id);
+			redirect('/p/103&id='.$id);
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -487,11 +487,11 @@ class D {
 				throw new Exception("That user doesn't exist");
 			}
 			// Done, redirect to edit page
-			redirect('index.php?p=110&id='.$id);
+			redirect('/p/110&id='.$id);
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -531,11 +531,11 @@ class D {
 			// rap log
 			rapLog(sprintf("has changed %s's username to %s", $_POST["oldu"], $_POST["newu"]));
 			// Done, redirect to success page
-			redirect('index.php?p=102&s=User identity changed! It might take a while to change the username if the user is online on Bancho.');
+			redirect('/p/102&s=User identity changed! It might take a while to change the username if the user is online on Bancho.');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -558,11 +558,11 @@ class D {
 			// RAP log
 			rapLog(sprintf("has %s badge %s", $_POST['id'] == 0 ? "created" : "edited", $_POST["n"]));
 			// Done, redirect to success page
-			redirect('index.php?p=108&s=Badge edited!');
+			redirect('/p/108&s=Badge edited!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -592,11 +592,11 @@ class D {
 			// RAP log
 			rapLog(sprintf("has edited %s's badges", $_POST["u"]));
 			// Done, redirect to success page
-			redirect('index.php?p=108&s=Badge edited!');
+			redirect('/p/108&s=Badge edited!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -623,11 +623,11 @@ class D {
 			// RAP log
 			rapLog(sprintf("has deleted badge %s", current($name)));
 			// Done, redirect to success page
-			redirect('index.php?p=108&s=Badge deleted!');
+			redirect('/p/108&s=Badge deleted!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=108&e='.$e->getMessage());
+			redirect('/p/108&e='.$e->getMessage());
 		}
 	}
 
@@ -659,15 +659,15 @@ class D {
 			// RAP log and redirect
 			if ($sl > 0) {
 				rapLog(sprintf("has silenced user %s for %s for the following reason: \"%s\"", $_POST['u'], timeDifference(time() + $sl, time(), false), $_POST["r"]));
-				$msg = 'index.php?p=102&s=User silenced!';
+				$msg = '/p/102&s=User silenced!';
 			} else {
 				rapLog(sprintf("has removed %s's silence", $_POST['u']));
-				$msg = 'index.php?p=102&s=User silence removed!';
+				$msg = '/p/102&s=User silence removed!';
 			}
 			if (isset($_POST["resend"])) {
 				redirect(stripSuccessError($_SERVER["HTTP_REFERER"]) . '&s='.$msg);
 			} else {
-				redirect('index.php?p=102&s='.$msg);
+				redirect('/p/102&s='.$msg);
 			}
 		}
 		catch(Exception $e) {
@@ -675,7 +675,7 @@ class D {
 			if (isset($_POST["resend"])) {
 				redirect(stripSuccessError($_SERVER["HTTP_REFERER"]) . '&e='.$e->getMessage());
 			} else {
-				redirect('index.php?p=102&e='.$e->getMessage());
+				redirect('/p/102&e='.$e->getMessage());
 			}
 		}
 	}
@@ -703,11 +703,11 @@ class D {
 				"reason" => $_POST["r"]
 			]));
 			// Done, redirect to success page
-			redirect('index.php?p=102&s=User kicked!');
+			redirect('/p/102&s=User kicked!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -731,11 +731,11 @@ class D {
 			// Rap log
 			rapLog(sprintf("has reset %s's avatar", getUserUsername($_GET['id'])));
 			// Done, redirect to success page
-			redirect('index.php?p=102&s=Avatar reset!');
+			redirect('/p/102&s=Avatar reset!');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -756,7 +756,7 @@ class D {
 			session_destroy();
 		} else {
 			// Uhm, some kind of error/h4xx0r. Let's return to login page just because yes.
-			redirect('index.php?p=2');
+			redirect('/p/2');
 		}
 	}
 
@@ -768,7 +768,7 @@ class D {
 		startSessionIfNotStarted();
 		$rch = new RememberCookieHandler();
 		$rch->DestroyAll($_SESSION['userid']);
-		redirect('index.php?p=1&s=forgetDone');
+		redirect('/p/1&s=forgetDone');
 	}
 
 	/*
@@ -841,11 +841,11 @@ class D {
 			// Update safe title cookie
 			updateSafeTitle();
 			// Done, redirect to success page
-			redirect('index.php?p=6&s=ok');
+			redirect('/p/6&s=ok');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=6&e='.$e->getMessage());
+			redirect('/p/6&e='.$e->getMessage());
 		}
 	}
 
@@ -872,14 +872,14 @@ class D {
 			// Save data in db
 			$GLOBALS['db']->execute('UPDATE users_stats SET userpage_content = ? WHERE username = ?', [$_POST['c'], $_SESSION['username']]);
 			if (isset($_POST['view']) && $_POST['view'] == 1) {
-				redirect('index.php?u=' . $_SESSION['userid']);
+				redirect('/u/' . $_SESSION['userid']);
 			}
 			// Done, redirect to success page
-			redirect('index.php?p=8&s=ok');
+			redirect('/p/8&s=ok');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=8&e='.$e->getMessage().$r);
+			redirect('/p/8&e='.$e->getMessage().$r);
 		}
 	}
 
@@ -921,11 +921,11 @@ class D {
 												    throw new Exception(4);
 												}*/
 			// Done, redirect to success page
-			redirect('index.php?p=5&s=ok');
+			redirect('/p/5&s=ok');
 		}
 		catch(Exception $e) {
 			// Redirect to Exception page
-			redirect('index.php?p=5&e='.$e->getMessage());
+			redirect('/p/5&e='.$e->getMessage());
 		}
 	}
 
@@ -981,10 +981,10 @@ class D {
 			rapLog(sprintf("has wiped %s's account", $username));
 
 			// Done
-			redirect('index.php?p=102&s=User scores and stats have been wiped!');
+			redirect('/p/102&s=User scores and stats have been wiped!');
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1009,10 +1009,10 @@ class D {
 				removeFriend($uid, $_GET['u'], true);
 			}
 			// Done, redirect
-			redirect('index.php?u='.$_GET['u']);
+			redirect('/u/'.$_GET['u']);
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=99&e='.$e->getMessage());
+			redirect('/p/99&e='.$e->getMessage());
 		}
 	}
 	
@@ -1069,10 +1069,10 @@ class D {
 			rapLog(sprintf("has %s beatmap set %s", $_GET["r"] == 0 ? "unranked" : "ranked", $bsid), $_SESSION["userid"]);
 
 			// Done
-			redirect("index.php?p=117&s=野生のちんちんが現れる");
+			redirect("/p/117&s=野生のちんちんが現れる");
 		}
 		catch(Exception $e) {
-			redirect("index.php?p=117&e=".$e->getMessage());
+			redirect("/p/117&e=".$e->getMessage());
 		}
 	}
 
@@ -1088,10 +1088,10 @@ class D {
 			$GLOBALS["db"]->execute("UPDATE rank_requests SET blacklisted = IF(blacklisted=1, 0, 1) WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			$reqData = $GLOBALS["db"]->fetch("SELECT type, bid FROM rank_requests WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			rapLog(sprintf("has toggled blacklist flag on beatmap %s %s", $reqData["type"] == "s" ? "set" : "", $reqData["bid"]), $_SESSION["userid"]);
-			redirect("index.php?p=117&s=Blacklisted flag changed");
+			redirect("/p/117&s=Blacklisted flag changed");
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=117&e='.$e->getMessage());
+			redirect('/p/117&e='.$e->getMessage());
 		}
 	}
 
@@ -1132,10 +1132,10 @@ class D {
 			}
 
 			// Fin.
-			redirect("index.php?p=118&s=Saved!");
+			redirect("/p/118&s=Saved!");
 		} catch (Exception $e) {
 			// There's a memino divertentino
-			redirect("index.php?p=118&e=".$e->getMessage());
+			redirect("/p/118&e=".$e->getMessage());
 		}
 	}
 
@@ -1181,7 +1181,7 @@ class D {
 			if (isset($_GET["resend"])) {
 				redirect(stripSuccessError($_SERVER["HTTP_REFERER"]) . '&s=User restricted/unrestricted!');
 			} else {
-				redirect('index.php?p=102&s=User restricted/unrestricted!');
+				redirect('/p/102&s=User restricted/unrestricted!');
 			}
 		}
 		catch(Exception $e) {
@@ -1189,7 +1189,7 @@ class D {
 			if (isset($_GET["resend"])) {
 				redirect(stripSuccessError($_SERVER["HTTP_REFERER"]) . '&e='.$e->getMessage());
 			} else {
-				redirect('index.php?p=102&e='.$e->getMessage());
+				redirect('/p/102&e='.$e->getMessage());
 			}
 		}
 	}
@@ -1200,10 +1200,10 @@ class D {
 				throw new Exception("Invalid user");
 			$months = giveDonor($_POST["id"], $_POST["m"], $_POST["type"] == 0);
 			rapLog(sprintf("has given donor for %s months to user %s", $_POST["m"], $username), $_SESSION["userid"]);
-			redirect("index.php?p=102&s=Donor status changed. Donor for that user now expires in ".$months." months!");
+			redirect("/p/102&s=Donor status changed. Donor for that user now expires in ".$months." months!");
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1223,10 +1223,10 @@ class D {
 			$GLOBALS["db"]->execute("DELETE FROM user_badges WHERE user = ? AND badge = ?", [$_GET["id"], 14]);
 
 			rapLog(sprintf("has removed donor from user %s", $username), $_SESSION["userid"]);
-			redirect("index.php?p=102&s=Donor status changed!");
+			redirect("/p/102&s=Donor status changed!");
 		}
 		catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1261,9 +1261,9 @@ class D {
 			$GLOBALS["db"]->execute("DELETE FROM scores WHERE userid = ? AND time >= ?", [$_POST["id"], $removeAfter]);
 
 			rapLog(sprintf("has rolled back %s %s's account", $rollbackString, $username), $_SESSION["userid"]);
-			redirect("index.php?p=102&s=User account has been rolled back!");
+			redirect("/p/102&s=User account has been rolled back!");
 		} catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1288,9 +1288,9 @@ class D {
 			$GLOBALS["db"]->execute("UPDATE users_stats SET can_custom_badge = ? WHERE id = ? LIMIT 1", [$can, $_GET["id"]]);
 
 			rapLog(sprintf("has %s custom badge privilege on %s's account", $grantRevoke, $username), $_SESSION["userid"]);
-			redirect("index.php?p=102&s=Custom badge privilege revoked/granted!");
+			redirect("/p/102&s=Custom badge privilege revoked/granted!");
 		} catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1316,9 +1316,9 @@ class D {
 			$lockUnlock = (hasPrivilege(Privileges::UserNormal, $_GET["id"])) ? "locked" : "unlocked";
 			$GLOBALS["db"]->execute("UPDATE users SET privileges = privileges ^ 2 WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			rapLog(sprintf("has %s %s's account", $grantRevoke, $userData["username"]), $_SESSION["userid"]);
-			redirect("index.php?p=102&s=User locked/unlocked!");
+			redirect("/p/102&s=User locked/unlocked!");
 		} catch(Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1403,9 +1403,9 @@ class D {
 			}
 
 			// Done
-			redirect("index.php?p=117&s=".$result);
+			redirect("/p/117&s=".$result);
 		} catch (Exception $e) {
-			redirect('index.php?p=117&e='.$e->getMessage());
+			redirect('/p/117&e='.$e->getMessage());
 		}
 	}
 
@@ -1423,9 +1423,9 @@ class D {
 				}
 				$bsid = current($bsid);
 			}
-			redirect("index.php?p=124&bsid=".$bsid);
+			redirect("/p/124&bsid=".$bsid);
 		} catch (Exception $e) {
-			redirect('index.php?p=125&e='.$e->getMessage());
+			redirect('/p/125&e='.$e->getMessage());
 		}
 	}
 
@@ -1436,9 +1436,9 @@ class D {
 			}
 			$GLOBALS["db"]->execute("DELETE FROM hw_user WHERE userid = ?", [$_GET["id"]]);
 			rapLog(sprintf("has cleared %s's HWID matches.", getUserUsername($_GET["id"])));
-			redirect('index.php?p=102&s=HWID matches cleared! Make sure to clear multiaccounts\' HWID too, or the user might get restricted for multiaccounting!');
+			redirect('/p/102&s=HWID matches cleared! Make sure to clear multiaccounts\' HWID too, or the user might get restricted for multiaccounting!');
 		} catch (Exception $e) {
-			redirect('index.php?p=102&e='.$e->getMessage());
+			redirect('/p/102&e='.$e->getMessage());
 		}
 	}
 
@@ -1460,9 +1460,9 @@ class D {
 				// Assign to current user
 				$GLOBALS["db"]->execute("UPDATE reports SET assigned = ? WHERE id = ? LIMIT 1", [$_SESSION["userid"], $_GET["id"]]);
 			}
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&s=Assignee changed!");
+			redirect("/p/127&id=" . $_GET["id"] . "&s=Assignee changed!");
 		} catch (Exception $e) {
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
+			redirect("/p/127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
 		}
 	}
 
@@ -1485,9 +1485,9 @@ class D {
 				// Solve
 				$GLOBALS["db"]->execute("UPDATE reports SET assigned = -1 WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			}
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&s=Solved status changed!");
+			redirect("/p/127&id=" . $_GET["id"] . "&s=Solved status changed!");
 		} catch (Exception $e) {
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
+			redirect("/p/127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
 		}
 	}
 
@@ -1510,9 +1510,9 @@ class D {
 				// Useless
 				$GLOBALS["db"]->execute("UPDATE reports SET assigned = -2 WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			}
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&s=Useful status changed!");
+			redirect("/p/127&id=" . $_GET["id"] . "&s=Useful status changed!");
 		} catch (Exception $e) {
-			redirect("index.php?p=127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
+			redirect("/p/127&id=" . $_GET["id"] . "&e=" . $e->getMessage());
 		}
 	}
 
@@ -1525,9 +1525,9 @@ class D {
 			if (!$userID) {
 				throw new Exception("No such user");
 			}
-			redirect("index.php?p=134&id=" . $userID);
+			redirect("/p/134&id=" . $userID);
 		} catch (Exception $e) {
-			redirect("index.php?p=134&e=" . $e->getMessage());
+			redirect("/p/134&e=" . $e->getMessage());
 		}
 	}
 
@@ -1581,9 +1581,9 @@ class D {
 				echo "Restored $lostScore[id]<br>";
 			}
 
-			// redirect(index.php?p=134&id=" . $userID);
+			// redirect(/p/134&id=" . $userID);
 		} catch (Exception $e) {
-			redirect("index.php?p=134&e=" . $e->getMessage());
+			redirect("/p/134&e=" . $e->getMessage());
 		}
 	}
 
@@ -1609,9 +1609,9 @@ class D {
 			$GLOBALS["db"]->execute("INSERT INTO main_menu_icons (name, file_id, url, is_default) VALUES (?, ?, ?, ?)", [$_POST["name"], $fileName, $_POST["url"], (int)($defaultCount == 0)]);
 			$msg = "Main menu icon uploaded successfully";
 			$msg .= $defaultCount == 0 ? " and set as default image." : "!";
-			redirect("index.php?p=111&s=" . $msg);
+			redirect("/p/111&s=" . $msg);
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1627,9 +1627,9 @@ class D {
 			unlink("main_menu_icons/" . $icon["file_id"] . ".png");
 			$GLOBALS["db"]->execute("DELETE FROM main_menu_icons WHERE id = ? LIMIT 1", [$_GET["id"]]);
 			updateMainMenuIconBancho();
-			redirect("index.php?p=111&s=Main menu icon deleted successfully!");
+			redirect("/p/111&s=Main menu icon deleted successfully!");
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1639,9 +1639,9 @@ class D {
 				throw new Exception("Missing required parameter");
 			}
 			$GLOBALS["db"]->execute("UPDATE main_menu_icons SET is_default = IF(id = ?, 1, 0)", [$_GET["id"]]);
-			redirect("index.php?p=111&s=Default main menu icon set successfully!");
+			redirect("/p/111&s=Default main menu icon set successfully!");
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1652,9 +1652,9 @@ class D {
 			}
 			$GLOBALS["db"]->execute("UPDATE main_menu_icons SET is_current = IF(id = ?, 1, 0)", [$_GET["id"]]);
 			updateMainMenuIconBancho();
-			redirect("index.php?p=111&s=Main menu icon set successfully!");
+			redirect("/p/111&s=Main menu icon set successfully!");
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1662,9 +1662,9 @@ class D {
 		try {
 			$GLOBALS["db"]->execute("UPDATE main_menu_icons SET is_current = IF((SELECT id FROM (SELECT * FROM main_menu_icons) AS x WHERE x.is_default = 1 AND x.id = main_menu_icons.id LIMIT 1), 1, 0)", [$_GET["id"]]);
 			updateMainMenuIconBancho();
-			redirect("index.php?p=111&s=Main menu icon restored successfully!");
+			redirect("/p/111&s=Main menu icon restored successfully!");
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1672,9 +1672,9 @@ class D {
 		try {
 			$GLOBALS["db"]->execute("UPDATE main_menu_icons SET is_current = 0", [$_GET["id"]]);
 			updateMainMenuIconBancho();
-			redirect("index.php?p=111&s=Main menu icon removed successfully!");
+			redirect("/p/111&s=Main menu icon removed successfully!");
 		} catch (Exception $e) {
-			redirect("index.php?p=111&e=" . $e->getMessage());
+			redirect("/p/111&e=" . $e->getMessage());
 		}
 	}
 
@@ -1706,9 +1706,9 @@ class D {
 				updateBanBancho($uid);
 				rapLog(sprintf("has banned user %s", $user["username"]));
 			}
-			redirect("index.php?p=102&e=" . $errors . "&s=" . $result);
+			redirect("/p/102&e=" . $errors . "&s=" . $result);
 		} catch (Exception $e) {
-			redirect("index.php?p=102&e=" . $e->getMessage());
+			redirect("/p/102&e=" . $e->getMessage());
 		}
 	}
 }

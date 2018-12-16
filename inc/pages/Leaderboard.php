@@ -35,7 +35,7 @@ class Leaderboard {
 			$scoringName = "PP";
 		else
 			$scoringName = "PP";
-		echo '<a href="index.php?p=13&m=0">'.$modesText[0].'</a> | <a href="index.php?p=13&m=1">'.$modesText[1].'</a> | <a href="index.php?p=13&m=2">'.$modesText[2].'</a> | <a href="index.php?p=13&m=3">'.$modesText[3].'</a>';
+		echo '<a href="/p/13&m=0">'.$modesText[0].'</a> | <a href="/p/13&m=1">'.$modesText[1].'</a> | <a href="/p/13&m=2">'.$modesText[2].'</a> | <a href="/p/13&m=3">'.$modesText[3].'</a>';
 
 		// paginate: generate db offset
 		$p = (isset($_GET["page"]) && is_numeric($_GET["page"]) ? (int)$_GET["page"] : 1);
@@ -52,11 +52,11 @@ class Leaderboard {
 
 		if (count($leaderboard) == 0) {
 			echo "<br><br><br><b>You have reached the end of the world.</b>";
-			echo '<br><br><a href="index.php?p=13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>';
+			echo '<br><br><a href="/p/13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>';
 			return;
 		}
 
-		echo '<br><br>' . ($p > 1 ? '<a href="index.php?p=13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>' : '') . '<a href="index.php?p=13&m='.$m.'&page='.($p+1).'"><i class="fa big-arrow fa-arrow-circle-right" aria-hidden="true"></i></a>';
+		echo '<br><br>' . ($p > 1 ? '<a href="/p/13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>' : '') . '<a href="/p/13&m='.$m.'&page='.($p+1).'"><i class="fa big-arrow fa-arrow-circle-right" aria-hidden="true"></i></a>';
 
 		// Leaderboard
 		echo '<table class="table table-striped table-hover">
@@ -93,7 +93,7 @@ class Leaderboard {
 			echo '<tr class="'.$tc.'">
 			<td><b>'.$rankSymbol.$offset.'</b></td>';
 			$country = strtolower($lbUser['country']);
-			echo '<td><img src="/images/flags/'.$country.'.png"/>	<a href="index.php?u='.$lbUser['id'].'&m='.$m.'">'.$lbUser['username'].'</a></td>
+			echo '<td><img src="/images/flags/'.$country.'.png"/>	<a href="/u/'.$lbUser['id'].'&m='.$m.'">'.$lbUser['username'].'</a></td>
 			<td>'.$score.'</td>
 			<td>'.(is_numeric($lbUser['avg_accuracy_'.$modeForDB]) ? accuracy($lbUser['avg_accuracy_'.$modeForDB]) : '0.00').'%</td>
 			<td>'.number_format($lbUser['playcount_'.$modeForDB]).'<i> (lvl.'.$lbUser['level_'.$modeForDB].')</i></td>
@@ -101,7 +101,7 @@ class Leaderboard {
 		}
 		// Close table
 		echo '</tbody></table>';
-		echo '<br><br>' . ($p > 1 ? '<a href="index.php?p=13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>' : '') . '<a href="index.php?p=13&m='.$m.'&page='.($p+1).'"><i class="fa big-arrow fa-arrow-circle-right" aria-hidden="true"></i></a>';
+		echo '<br><br>' . ($p > 1 ? '<a href="/p/13&m='.$m.'&page='.($p-1).'"><i class="fa big-arrow fa-arrow-circle-left" aria-hidden="true"></i></a>' : '') . '<a href="/p/13&m='.$m.'&page='.($p+1).'"><i class="fa big-arrow fa-arrow-circle-right" aria-hidden="true"></i></a>';
 	}
 
 	public static function GetUserRank($u, $mode) {

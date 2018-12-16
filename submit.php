@@ -23,7 +23,7 @@ try {
 				if ($page::LoggedIn) {
 					clir();
 				} else {
-					clir(true, 'index.php?p=1&e=1');
+					clir(true, '/p/1&e=1');
 				}
 			}
 			checkMustHave($page);
@@ -38,13 +38,51 @@ try {
 
 	// What shall we do?
 	switch ($action) {
+		case 'register':
+			D::Register();
+		break;
+		case 'Screenshot':
+			SessionCheck();
+			D::Screenshot();
+		break;
+		case 'changePassword':
+			D::ChangePassword();
+		break;
 		case 'logout':
 			D::Logout();
 			redirect('index.php');
 		break;
+		case 'u':
+			redirect('../ripple//u/'.$_GET['data'].'&m=0');
+		break;
+		case 'recoverPassword':
+			D::RecoverPassword();
+		break;
+		case 'saveUserSettings':
+			D::saveUserSettings();
+		break;
+		case 'forgetEveryCookie':
+			D::ForgetEveryCookie();
+		break;
+		case 'saveUserpage':
+			D::SaveUserpage();
+		break;
+		case 'changeAvatar':
+			D::ChangeAvatar();
+		break;
+		case 'addRemoveFriend':
+			D::AddRemoveFriend();
+		break;
+		case 'resend2FACode':
+			D::Resend2FACode();
+		break;
+		case 'disable2FA':
+			D::Disable2FA();
+		break;
+		default:
+			throw new Exception('Invalid action value');
 		break;
 			// Admin functions, need sessionCheckAdmin() because can be performed only by admins
-
 		case 'saveSystemSettings':
 			sessionCheckAdmin(Privileges::AdminManageSettings);
 			D::SaveSystemSettings();
@@ -219,5 +257,5 @@ try {
 }
 catch(Exception $e) {
 	// Redirect to Exception page
-	redirect('index.php?p=99&e='.$e->getMessage());
+	redirect('/p/99&e='.$e->getMessage());
 }

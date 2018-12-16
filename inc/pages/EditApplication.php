@@ -26,7 +26,7 @@ class EditApplication {
 				<textarea name="description" class="form-control" placeholder="Application description" maxlength="2000" spellcheck="false" rows="4"><?= htmlentities($app["description"]); ?></textarea>
 				<br>
 				<input type="hidden" name="id" value="<?= $app['id'] ?>">
-				<a href="index.php?p=32"><button type="button" class="btn btn-default">Go back</button></a>
+				<a href="/p/32"><button type="button" class="btn btn-default">Go back</button></a>
 				<button type="button" class="btn btn-danger" onclick='reallysure("/submit.php?action=deleteApplication&id=<?= $app['id'] ?>");'>Delete</button>
 				<button type="submit" class="btn btn-primary">Save</button>
 			</form>
@@ -39,6 +39,6 @@ class EditApplication {
 		$GLOBALS['db']->execute('UPDATE api_applications SET name = ?, description = ? WHERE id = ? AND owner = ? LIMIT 1',
 			[$_POST["name"], $_POST["description"], $_POST["id"], $_SESSION["userid"]]);
 		addSuccess("Changes saved!");
-		redirect("index.php?p=33&id=" . $_POST["id"]);
+		redirect("/p/33&id=" . $_POST["id"]);
 	}
 }

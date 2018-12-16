@@ -54,11 +54,11 @@ class PasswordFinishRecovery {
 			$GLOBALS['db']->fetch('DELETE FROM password_recovery WHERE id = ?;', [$d['id']]);
 			// Redirect to success page
 			addSuccess("All right, sunshine! Your password is now changed. Why don't you login with your shiny new password, now?");
-			return 'index.php?p=2';
+			return '/p/2';
 		}
 		catch(Exception $e) {
 			addError($e->getMessage());
-			return 'index.php?p=19&e='.'&k='.$_POST['k'].'&user='.$_POST['user'];
+			return '/p/19&e='.'&k='.$_POST['k'].'&user='.$_POST['user'];
 		}
 	}
 }

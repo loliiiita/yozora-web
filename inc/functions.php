@@ -572,7 +572,7 @@ function printNavbar() {
 							</button>';
 						}
 						global $isBday;
-						echo $isBday ? '<a class="navbar-brand" href="index.php"><i class="fa fa-birthday-cake"></i><img src="/images/logos/text-new.png" style="display: inline; padding-left: 10px;"></a>' : '<a class="navbar-brand" href="/"><img src="/images/logos/text-new.png"></a>';
+						echo $isBday ? '<a class="navbar-brand" href="/"><i class="fa fa-birthday-cake"></i><img src="/images/logos/text-new.png" style="display: inline; padding-left: 10px;"></a>' : '<a class="navbar-brand" href="/"><img src="/images/logos/text-new.png"></a>';
 					echo '</div>
 					<div class="navbar-collapse collapse">';
 	// Left elements
@@ -633,7 +633,7 @@ function printNavbar() {
 		echo '<li class="dropdown">
 					<a data-toggle="dropdown"><img src="'.URL::Avatar().'/'.getUserID($_SESSION['username']).'" height="22" width="22" />	<b>'.$_SESSION['username'].'</b><span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li class="dropdown-submenu"><a href="index.php?u='.getUserID($_SESSION['username']).'"><i class="fa fa-user"></i> My profile</a></li>
+						<li class="dropdown-submenu"><a href="/u/'.getUserID($_SESSION['username']).'"><i class="fa fa-user"></i> My profile</a></li>
 						<li class="dropdown-submenu"><a href="/p/26"><i class="fa fa-star"></i>	Friends</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-submenu"><a href="/p/5"><i class="fa fa-picture-o"></i> Change avatar</a></li>

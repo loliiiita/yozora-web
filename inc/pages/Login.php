@@ -9,12 +9,12 @@ class Login {
 	public $error_messages = ['You are not logged in.', 'Session expired. Please login again.', 'Invalid auto-login cookie.', 'You are already logged in.'];
 
 	public function P() {
-		clir(true, 'index.php?p=1&e=1');
+		clir(true, '/p/1&e=1');
 		echo '<br><div class="narrow-content"><h1><i class="fa fa-sign-in"></i>	Login</h1>';
 		if (!isset($_GET['e']) && !isset($_GET['s'])) {
 			echo '<p>Please enter your credentials.</p>';
 		}
-		echo '<p><a href="index.php?p=18">Forgot your password, perhaps?</a></p>';
+		echo '<p><a href="/p/18">Forgot your password, perhaps?</a></p>';
 		// Print login form
 		echo '<form action="/submit.php" method="POST">
 		<input name="action" value="login" hidden>
@@ -24,7 +24,7 @@ class Login {
 		<p><label><input type="checkbox" name="remember" value="yes"> Stay logged in?</label></p>
 		<p style="line-height: 15px"></p>
 		<button type="submit" class="btn btn-primary">Login</button>
-		<a href="index.php?p=3" type="button" class="btn btn-default">Sign up</a>
+		<a href="/p/3" type="button" class="btn btn-default">Sign up</a>
 		</form>
 		</div>';
 	}
@@ -34,10 +34,10 @@ class Login {
 		if (isset($d['success'])) {
 			if (isset($_SESSION['redirpage']) && $_SESSION['redirpage'] != '')
 				redirect($_SESSION['redirpage']);
-			redirect('index.php?p=1');
+			redirect('/p/1');
 		} else {
 			addError($d['error']);
-			redirect('index.php?p=2');
+			redirect('/p/2');
 		}
 	}
 

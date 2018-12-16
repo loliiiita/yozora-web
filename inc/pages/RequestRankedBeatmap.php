@@ -54,11 +54,11 @@ class RequestRankedBeatmap {
 		$d = $this->DoGetData();
 		if (isset($d["error"])) {
 			addError($d["error"]);
-			redirect("index.php?p=31");
+			redirect("/p/31");
 		} else {
 			// No errors, run botnet to add the new IP address
 			addSuccess($d["success"]);
-			redirect("index.php?p=31&s=1");
+			redirect("/p/31&s=1");
 		}
 	}
 

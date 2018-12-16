@@ -18,7 +18,7 @@ class Welcome {
 				throw new Exception;
 			// Make sure "u" is not pending verification
 			if (hasPrivilege(Privileges::UserPendingVerification, $_GET["u"]))
-				redirect("index.php?p=38&u=".$_GET["u"]);
+				redirect("/p/38&u=".$_GET["u"]);
 			P::GlobalAlert();
 			echo '<div class="narrow-content">';
 
@@ -26,14 +26,14 @@ class Welcome {
 				echo '<h1><i class="fa fa-hand-peace-o"></i> Welcome to Ripple!</h1>
 				<p>
 					<b>Congratulations, your account is now active!</b> Have fun playing on Ripple!<br>
-					You can now <a href="index.php?p=2">log in</a> from the website and start playing ingame!<br>
+					You can now <a href="/p/2">log in</a> from the website and start playing ingame!<br>
 				</p>
 				<hr>
 				<b>Some pages you may want to check:</b>
-				<h4><i class="fa fa-lock"></i>	<a target="_blank" href="index.php?p=2"> Login</a></h4>
-				<h4><i class="fa fa-gavel"></i>	<a target="_blank" href="index.php?p=23">Rules</a></h4>
-				<h4><i class="fa fa-question-circle"></i>	<a target="_blank" href="index.php?p=14">Help</a></h4>
-				<h4><i class="fa fa-link"></i>	<a target="_blank" href="index.php?p=16&id=1">Connection guide</a></h4>
+				<h4><i class="fa fa-lock"></i>	<a target="_blank" href="/p/2"> Login</a></h4>
+				<h4><i class="fa fa-gavel"></i>	<a target="_blank" href="/p/23">Rules</a></h4>
+				<h4><i class="fa fa-question-circle"></i>	<a target="_blank" href="/p/14">Help</a></h4>
+				<h4><i class="fa fa-link"></i>	<a target="_blank" href="/p/16&id=1">Connection guide</a></h4>
 				<h4><i class="fa fa-server"></i>	<a target="_blank" href="http://status.ripple.moe">Server Status</a></h4>
 				<h4><i class="fa fa-comment"></i>	<a target="_blank" href="'.$discordConfig["invite_url"].'">Official Discord</a></h4>
 				<h4><i class="fa fa-reddit"></i>	<a target="_blank" href="https://reddit.com/r/osuripple">Official Subreddit</a></h4>';

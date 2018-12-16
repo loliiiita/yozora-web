@@ -71,7 +71,7 @@ class Team {
 								if ($i % 3 == 0 || $i == 0)
 									echo "<div class='row' style='margin-bottom: 7px;'>";
 								echo "<div class='col-sm-4'>
-									<a href='index.php?u=$donor[id]' target='_blank'><img src='//a.ripple.moe/$donor[id]' class='img-circle' style='width: 25px; height: 25px; float: left; margin-right: 5px;'></img><span style='float: left;'>$donor[username]</span></a>
+									<a href='/u/$donor[id]' target='_blank'><img src='//a.ripple.moe/$donor[id]' class='img-circle' style='width: 25px; height: 25px; float: left; margin-right: 5px;'></img><span style='float: left;'>$donor[username]</span></a>
 								</div>";
 							}
 							if (count($donors) % 3 != 0) {
@@ -82,7 +82,7 @@ class Team {
 								$c = $donorsCount["count"]-60;
 								echo "<div class='row' style='margin-top: 30px;'><b>...and $c more people</b></div>";
 							}
-						echo '<hr><b>Do you want to be in this list?<br><a href="index.php?p=34">Support us with a donation!</b></a><br><i>(You get other cool perks too)</i>.</div>
+						echo '<hr><b>Do you want to be in this list?<br><a href="/p/34">Support us with a donation!</b></a><br><i>(You get other cool perks too)</i>.</div>
 						</div>
 					</div>
 				</div>
@@ -109,7 +109,7 @@ class Team {
 			echo '
 			<div class="col-lg-'.round(12/floor(count($dudes))).' col-sm-6 text-center">
 				<img class="img-circle img-center" src="' . URL::Avatar() . '/'.$dude["id"].'" width="100"><br>
-				<span class="teammate-name"><a class="silent" href="index.php?u='.$dude["id"].'">'.$dude["username"].'</a></span><br>';
+				<span class="teammate-name"><a class="silent" href="/u/'.$dude["id"].'">'.$dude["username"].'</a></span><br>';
 				if (array_key_exists($dude["id"], $teamConfig)) {
 					if (array_key_exists("name", $teamConfig[$dude["id"]])) {
 						echo '<h4 style="display: inline;">'.$teamConfig[$dude["id"]]["name"].'</h4><br>';
