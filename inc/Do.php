@@ -922,7 +922,7 @@ class D {
 		}
 	}
 	public static function createClan() {
-		if (!isset($_POST['c']) || !isset($_POST['t']) {
+		if (!isset($_POST['c']) || !isset($_POST['t'])) {
 			throw new Exception('Invalid Registration');
 		}
 		$clan = $GLOBALS["db"]->fetch("SELECT * FROM clan_users WHERE member_id = ?", $_SESSION['userid']);
