@@ -107,7 +107,7 @@ class Support {
 					</div>
 					<div class="col-sm-4">
 						<div class="col-padding">
-							<h3><i class="fa fa-info-circLe"></i>	Helping Out!</h3>
+							<h3><i class="fa fa-info-circle"></i>	Helping Out!</h3>
 							<p>Supporters may help out with decisions on features as well as be able to have access to updates before they release to give feedback and/or ways to do things!</p>
 						</div>
 					</div>
