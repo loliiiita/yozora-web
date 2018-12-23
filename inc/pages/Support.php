@@ -84,7 +84,7 @@ class Support {
 							<p>Want to compete with your <b>friends</b>? Not a problem if you have donated! It takes an <b>enormous amount of resources</b> to make friend rankings, but we\'d do anything for our beloved donors &lt;3</p>
 						</div>
 					</div>
-					<div class="col-sm-4">ss
+					<div class="col-sm-4">
 						<div class="col-padding">
 							<h3><i class="fa fa-quote-left"></i>	Username change</h3>
 							<p>Everyone gets a free username change. If you are a donor, you will be able to <b>change your username twice!</b></p>
@@ -96,6 +96,9 @@ class Support {
 							<p>You\'ll get exclusive access to the "<b>#donators</b>" text and voice <b>channels</b>, you\'ll be able to change your discord nickname and you\'ll get a custom <b>role</b> with custom username <b>color</b>!</p>
 						</div>
 					</div>
+				</div>
+				<hr>
+				<div class="row grid-divider" align="left">
 					<div class="col-sm-4">
 						<div class="col-padding">
 							<h3><i class="fa fa-youtube"></i>	Social Media Tags</h3>
@@ -104,7 +107,7 @@ class Support {
 					</div>
 					<div class="col-sm-4">
 						<div class="col-padding">
-							<h3><i class="fa fa-info-circe"></i>	Helping Out!</h3>
+							<h3><i class="fa fa-info-circLe"></i>	Helping Out!</h3>
 							<p>Supporters may help out with decisions on features as well as be able to have access to updates before they release to give feedback and/or ways to do things!</p>
 						</div>
 					</div>
