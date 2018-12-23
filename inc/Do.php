@@ -773,7 +773,7 @@ class D {
 				throw new Exception(1);
 			}
 			// Check everything is set
-			if (!isset($_POST['c']) || !isset($_POST['aka']) || !isset($_POST['st']) || !isset($_POST['mode']) || !isset($_POST['twitch_tv']) || !isset($_POST['youtube'])) {
+			if (!isset($_POST['c']) || !isset($_POST['aka']) || !isset($_POST['st']) || !isset($_POST['mode']) || !isset($_POST['twitch']) || !isset($_POST['youtube'])) {
 				throw new Exception(0);
 			}
 			// Make sure values are valid
