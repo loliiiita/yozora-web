@@ -102,7 +102,7 @@ class Support {
 					<div class="col-sm-4">
 						<div class="col-padding">
 							<h3><i class="fa fa-youtube"></i>	Social Media Tags</h3>
-							<p>More or less, this is for things like Twitch and YouTube and can do things like !twitch or !youtube to advertise either their live Twitch stream or their YouTube channel</p>
+							<p>More or less, this is for things like Twitch and YouTube and can do things like !advertise twitch or !advertise youtube to advertise either their live Twitch stream or their YouTube channel</p>
 						</div>
 					</div>
 					<div class="col-sm-4">
