@@ -773,7 +773,7 @@ class D {
 				throw new Exception(1);
 			}
 			// Check everything is set
-			if (!isset($_POST['c']) || !isset($_POST['aka']) || !isset($_POST['st']) || !isset($_POST['mode'])) {
+			if (!isset($_POST['c']) || !isset($_POST['aka']) || !isset($_POST['st']) || !isset($_POST['mode']) || !isset($_POST['twitch_tv']) || !isset($_POST['youtube'])) {
 				throw new Exception(0);
 			}
 			// Make sure values are valid
@@ -821,7 +821,7 @@ class D {
 				$GLOBALS["db"]->execute("UPDATE users_stats SET show_custom_badge = ?, custom_badge_name = ?, custom_badge_icon = ? WHERE id = ? LIMIT 1", [$_POST["showCustomBadge"], $_POST["badgeName"], $icon, $_SESSION["userid"]]);
 			}
 			// Save data in db
-			$GLOBALS['db']->execute('UPDATE users_stats SET user_color = ?, username_aka = ?, safe_title = ?, play_style = ?, favourite_mode = ? WHERE id = ? LIMIT 1', [$c, $_POST['aka'], $_POST['st'], $pm, $_POST['mode'], $_SESSION['userid']]);
+			$GLOBALS['db']->execute('UPDATE users_stats SET user_color = ?, username_aka = ?, safe_title = ?, play_style = ?, favourite_mode = ?, twitch_tv = ?, youtube = ? WHERE id = ? LIMIT 1', [$c, $_POST['aka'], $_POST['st'], $pm, $_POST['mode'], $_POST['twitch'], $_POST['youtube'] $_SESSION['userid']]);
 			// Update safe title cookie
 			updateSafeTitle();
 			// Done, redirect to success page
