@@ -84,9 +84,8 @@ class Support {
 							<p>Want to compete with your <b>friends</b>? Not a problem if you have donated! It takes an <b>enormous amount of resources</b> to make friend rankings, but we\'d do anything for our beloved donors &lt;3</p>
 						</div>
 					</div>
-					<div class="col-sm-4">
-						<div align="center"><span class="label label-default">Coming soon</span></div>
-						<div class="col-padding coming-soon">
+					<div class="col-sm-4">ss
+						<div class="col-padding">
 							<h3><i class="fa fa-quote-left"></i>	Username change</h3>
 							<p>Everyone gets a free username change. If you are a donor, you will be able to <b>change your username twice!</b></p>
 						</div>
@@ -95,6 +94,18 @@ class Support {
 						<div class="col-padding">
 							<h3><i class="fa fa-comments"></i>	Discord privileges</h3>
 							<p>You\'ll get exclusive access to the "<b>#donators</b>" text and voice <b>channels</b>, you\'ll be able to change your discord nickname and you\'ll get a custom <b>role</b> with custom username <b>color</b>!</p>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="col-padding">
+							<h3><i class="fa fa-youtube"></i>	Social Media Tags</h3>
+							<p>More or less, this is for things like Twitch and YouTube and can do things like !twitch or !youtube to advertise either their live Twitch stream or their YouTube channel</p>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="col-padding">
+							<h3><i class="fa fa-info-circe"></i>	Helping Out!</h3>
+							<p>Supporters may help out with decisions on features as well as be able to have access to updates before they release to give feedback and/or ways to do things!</p>
 						</div>
 					</div>
 				</div>
@@ -146,14 +157,6 @@ class Support {
 								<!-- <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_buynowCC_LG.gif" border="0" name="submit"> -->
 								<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
 							</form>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="col-padding">
-							<h3><i class="fa fa-btc"></i>	Prefer Bitcoin?</h3>
-							<b id="supporter-btc" hidden>Send <span id="supporter-btc-price"></span> mBTC to this Bitcoin address:</b><br>
-							132HMmzADGG7fGfwuqUSP7gahTWVLkfZLR<br>
-							<b>Afterwards, please send an email to <u><a href="mailto:contact@ilyt.cc">contact@ilyt.cc</a></u> containing the transaction hash!</b>
 						</div>
 					</div>
 				</div>
