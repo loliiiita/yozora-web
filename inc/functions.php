@@ -615,7 +615,7 @@ function printNavbar() {
 						<li class="dropdown-submenu"><a href="http://info.yozora.pw"><i class="fa fa-cogs"></i>	Server status</a></li>
 						<li class="dropdown-submenu"><a href="/files/switcher.exe"><i class="fa fa-server"></i>	Server switcher</a></li>
 						<li class="divider"></li>';
-						echo '<
+						echo '
 						<li class="dropdown-submenu"><a href="'.$discordConfig["invite_url"].'"><i class="fa fa-comment"></i>	Discord</a></li>
 						<li class="dropdown-submenu"><a href="/p/21"><i class="fa fa-info-circle"></i>	About</a></li>
 					</ul>
