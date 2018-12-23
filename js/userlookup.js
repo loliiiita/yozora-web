@@ -11,7 +11,7 @@ var displayer = function(a) {
 	return a.username
 }
 var suggest = function(a) {
-	return "<div><span class='avileft'><img src='https://a.ripple.moe/" + a.id + "' class='tinyavatar'></span> " + a.username + "</div>";
+	return "<div><span class='avileft'><img src='https://a.yozora.pw/" + a.id + "' class='tinyavatar'></span> " + a.username + "</div>";
 }
 
 var fired = false;

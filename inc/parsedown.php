@@ -26,7 +26,7 @@ class Parsedown
         # make sure no definitions are set
         $this->DefinitionData = array();
 
-		// ripple functions meme xd
+		// Yozora functions meme xd
 		$text = preg_replace('/ruleheader\\(([a-zA-Z-]+),([a-zA-Z- \\/]+)\\)/i', '<h3><b><i class="fa ${1}"></i> ${2}</b></h3>', $text);
 
         # standardize line breaks

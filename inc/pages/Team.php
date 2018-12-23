@@ -3,7 +3,7 @@
 class Team {
 	const PageID = 35;
 	const URL = 'Team';
-	const Title = 'Ripple - Team';
+	const Title = 'Yozora - Team';
 	public $error_messages = [];
 	public $mh_GET = [];
 	public $mh_POST = ["url"];
@@ -14,20 +14,20 @@ class Team {
 		echo '
 		<div id="content">
 			<div align="center">
-				<h1><i class="fa fa-star"></i> Ripple Team</h1>
-				<h4>This is the list of the people who keep ripple up and running and deal with its community.</h4>';
+				<h1><i class="fa fa-star"></i> Yozora Team</h1>
+				<h4>This is the list of the people who keep Yozora up and running and deal with its community.</h4>';
 
 				echo '<hr>
 				<h3><i class="fa fa-gavel"></i>	Community Managers</h3>
 				Community Managers deal with bans, silences, name changes and pretty much everything that has to do with the community.<br>
-				They are take care of our Discord server and reply to email sent to support@ripple.moe too. Community managers have a red name in game chat.<br><br>';
+				They are take care of our Discord server and reply to email sent to support@yozora.pw too. Community managers have a red name in game chat.<br><br>';
 				self::printTeam("community manager");
 				//echo '<div style="margin-bottom: 25%;"></div>';
 
-				echo '<hr><h3><i class="fa fa-code"></i>	Developers</h3>
-				Developers add new features to the server, squash bugs, keep the server up and running and take care of its maintenance.<br>
-				They don\'t do anything related to the community. You can distinguish them because they have a blue name in game chat.<br><br>';
-				self::printTeam("developer");
+				echo '<hr><h3><i class="fa fa-code"></i>	Owner</h3>
+				Ilyt is the owner that adds new features to the server, squash bugs, keep the server up and running and take care of its maintenance.<br>
+				She tries to listen to the community. You know it is me because I have a blue name in-game.<br><br>';
+				self::printTeam("Owner");
 
 				echo '<hr><h3><i class="fa fa-music"></i>	BATs</h3>
 				BATs play beatmaps in the ranking queue and decide whether they are good enough to be ranked or not.<br><br>';
@@ -38,22 +38,20 @@ class Team {
 					<i class="fa fa-circle fa-bullet-list"></i>	
 					<b>Franc[e]sco/lolisamurai</b>, for <a href="https://github.com/Francesco149/oppai" target="_blank">oppai</a>, used as standard pp calculator.<br>
 					oppai is licensed under GPL v3.
-					Our implementation can be found <a href="https://git.zxq.co/ripple/lets/src/master/pp/rippoppai.py" target="_blank">here</a>.<br>
+					Our implementation can be found <a href="https://github.com/osuYozora/lets/src/master/pp/rippoppai.py" target="_blank">here</a>.<br>
 					<div class="small-br"></div>
 					<i class="fa fa-circle fa-bullet-list"></i>	<b>Tom94</b>, for <a href="https://github.com/ppy/osu-performance" target="_blank">osu-performance</a>, used as a reference for our mania pp calculator.<br>
-					osu-performance is licensed under AGPL v3. Our implementation can be found <a href="https://git.zxq.co/ripple/lets/src/master/pp/wifipiano2.py" target="_blank">here</a>.<br>
+					osu-performance is licensed under AGPL v3. Our implementation can be found <a href="https://github.com/osuYozora/lets/src/master/pp/wifipiano2.py" target="_blank">here</a>.<br>
 					<div class="small-br"></div>
 					<i class="fa fa-circle fa-bullet-list"></i>	<b>jrosdahl</b>, for <a href="https://github.com/jrosdahl/miniircd" target="_blank">miniircd</a>, used as a base for our IRC server.<br>
-					miniircd is licensed under GPL v2. Our implementation can be found <a href="https://git.zxq.co/ripple/pep.py/src/master/irc/ircserver.py" target="_blank">here</a>.<br>
+					miniircd is licensed under GPL v2. Our implementation can be found <a href="https://github.com/osuYozora/pep.py/src/master/irc/ircserver.py" target="_blank">here</a>.<br>
 					<div class="small-br"></div>
-					<i class="fa fa-circle fa-bullet-list"></i>	<b>Avail</b>, for hosting Ripple on his server.
+					<i class="fa fa-circle fa-bullet-list"></i>	<b>Jackson Isiah</b>, for Yozora\'s logo.
 					<div class="small-br"></div>
-					<i class="fa fa-circle fa-bullet-list"></i>	<b>Angela Guerra</b>, for Ripple\'s logo.
-					<div class="small-br"></div>
-					<i class="fa fa-circle fa-bullet-list"></i>	<b><a href="#" data-toggle="modal" data-target="#donorsModal">Everyone</a></b> who has supported the Ripple project by donating or inviting other people.<br><b><i>Without you, Ripple would not have become what it is now.</b></i>';
+					<i class="fa fa-circle fa-bullet-list"></i>	<b><a href="#" data-toggle="modal" data-target="#donorsModal">Everyone</a></b> who has supported the Yozora project by donating or inviting other people.<br><b><i>Without you, Yozora would not have become what it is now.</b></i>';
 				echo '<hr><h3><i class="fa fa-reply"></i>	How to contact the team</h3>
-				You can find every member of the team in our Discord server. If you want to speak privately with us, you can send an email to support@ripple.moe and a Community Manager will reply as soon as possible. If you want to contact a specific member of the team, you can click on the envelope button under their name in this page to send him an email. Remember that Developers cannot help you with bans, silences and such. Developers are able to help you only if you have technical questions or issues.<br>
-				If you want to appeal your ban/restriction or report someone, send an email to support@ripple.moe (which is managed by CMs) instead.';
+				You can find every member of the team in our Discord server. If you want to speak privately with us, you can send an email to support@yozora.pw and a Community Manager will reply as soon as possible. If you want to contact a specific member of the team, you can click on the envelope button under their name in this page to send him an email. Remember that Developers cannot help you with bans, silences and such. Developers are able to help you only if you have technical questions or issues.<br>
+				If you want to appeal your ban/restriction or report someone, send an email to support@yozora.pw (which is mainly managed by CMs) instead.';
 
 		echo '<div class="modal fade" id="donorsModal" tabindex="-1" role="dialog" aria-labelledby="donorsModalLabel">
 				<div class="modal-dialog" role="document">
@@ -71,7 +69,7 @@ class Team {
 								if ($i % 3 == 0 || $i == 0)
 									echo "<div class='row' style='margin-bottom: 7px;'>";
 								echo "<div class='col-sm-4'>
-									<a href='/u/$donor[id]' target='_blank'><img src='//a.ripple.moe/$donor[id]' class='img-circle' style='width: 25px; height: 25px; float: left; margin-right: 5px;'></img><span style='float: left;'>$donor[username]</span></a>
+									<a href='/u/$donor[id]' target='_blank'><img src='//a.yozora.pw/$donor[id]' class='img-circle' style='width: 25px; height: 25px; float: left; margin-right: 5px;'></img><span style='float: left;'>$donor[username]</span></a>
 								</div>";
 							}
 							if (count($donors) % 3 != 0) {

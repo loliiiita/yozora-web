@@ -3,14 +3,14 @@
 define('DATABASE_HOST', 'localhost');	// MySQL host. usually localhost
 define('DATABASE_USER', 'root');		// MySQL username
 define('DATABASE_PASS', 'meme');		// MySQL password
-define('DATABASE_NAME', 'allora');		// Database name
+define('DATABASE_NAME', 'yozora');		// Database name
 define('DATABASE_WHAT', 'host');		// "host" or unix socket path
 
 // Server urls, no slash
 $URL = [
-	'avatar' => 'https://a.ripple.moe',
-	'server' => 'https://ripple.moe',
-	'bancho' => 'http://c.ripple.moe',
+	'avatar' => 'https://a.yozora.pw',
+	'server' => 'https://yozora.pw',
+	'bancho' => 'http://c.yozora.pw',
 	'scores' => 'http://127.0.0.1:5002'
 ];
 
@@ -40,7 +40,7 @@ $ServerStatusConfig = [
 		'bancho_url'        => 'http://127.0.0.1:5001', // Bancho URL
 		'avatars_url'       => 'http://127.0.0.1:5000', // Avatar server URL
 		'beatmap_url'       => 'http://bcache.zxq.co', 	// Beatmap mirror URL
-		'api_url'           => 'http://127.0.0.1/api', 	// Ripple API URL
+		'api_url'           => 'http://127.0.0.1/api', 	// Yozora API URL
 		'lets_url'          => 'http://127.0.0.1:5002', // LETS URL
 	],
 
@@ -111,7 +111,7 @@ $paypalConfig = [
 	"sandbox" => false
 ];
 
-// Leave empty for ripple clones
+// Leave empty for Yozora clones
 $gooseKey = "";
 $paypalTgConfig = [
 	"token" => "",

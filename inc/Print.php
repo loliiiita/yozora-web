@@ -1106,7 +1106,7 @@ class P {
 				foreach ($icons as $icon) {
 					echo'
 					<tr class="' . ($icon["is_current"] ? "success" : ($icon["is_default"] ? "warning": "")) . '">
-						<td><a href="https://i.ripple.moe/' . $icon["file_id"] . '.png" target="_blank">' . $icon["name"] . '</a> - <a href="' . $icon["url"] . '" target="_blank">' . $icon["url"] . '</td>
+						<td><a href="https://i.yozora.pw/' . $icon["file_id"] . '.png" target="_blank">' . $icon["name"] . '</a> - <a href="' . $icon["url"] . '" target="_blank">' . $icon["url"] . '</td>
 						<td style="text-align: right">
 							<a ' . ($icon["is_current"] ? "disabled" : "") . ' title="Set as main menu icon" class="btn btn-success btn-xs" href="/submit.php?action=setMainMenuIcon&id=' . $icon["id"] . '&csrf='.csrfToken(). '"><i class="fa fa-check"></i></a>
 							<a ' . ($icon["is_default"] ? "disabled" : "") . ' title="Set as default main menu icon" class="btn btn-info btn-xs" href="/submit.php?action=setDefaultMainMenuIcon&id=' . $icon["id"] . '&csrf='.csrfToken(). '"><i class="fa fa-asterisk"></i></a>
@@ -2040,16 +2040,16 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 		self::GlobalAlert();
 		echo '<div class="narrow-content" style="width:500px"><h1><i class="fa fa-exclamation-circle"></i> Recover your password</h1>';
 		// Print Exception if set and in array.
-		$exceptions = ['Nice troll.', "That user doesn't exist.", "You are banned from Ripple. We won't let you come back in."];
+		$exceptions = ['Nice troll.', "That user doesn't exist.", "You are banned from Yozora. We won't let you come back in."];
 		if (isset($_GET['e']) && isset($exceptions[$_GET['e']])) {
 			self::ExceptionMessage($exceptions[$_GET['e']]);
 		}
 		if (isset($_GET['s'])) {
-			self::SuccessMessage('You should have received an email containing instructions on how to recover your Ripple account.');
+			self::SuccessMessage('You should have received an email containing instructions on how to recover your Yozora account.');
 		}
 		if (checkLoggedIn()) {
 			echo 'What are you doing here? You\'re already logged in, you moron!<br>';
-			echo 'If you really want to fake that you\'ve lost your password, you should at the very least log out of Ripple, you know.';
+			echo 'If you really want to fake that you\'ve lost your password, you should at the very least log out of Yozora, you know.';
 		} else {
 			echo '<p>Let\'s get some things straight. We can only help you if you DID put your actual email address when you signed up. If you didn\'t, you\'re screwed. Hope to know the admins well enough to tell them to change the password for you, otherwise your account is now dead.</p><br>
 			<form action="/submit.php" method="POST">
@@ -2077,11 +2077,11 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				throw new Exception();
 			}
 			// Mod/admin, show alert and continue
-			echo '<div class="alert alert-warning" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Ripple\'s website is in <b>maintenance mode</b>. Only moderators and administrators have access to the full website.</p></div>';
+			echo '<div class="alert alert-warning" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Yozora\'s website is in <b>maintenance mode</b>. Only moderators and administrators have access to the full website.</p></div>';
 		}
 		catch(Exception $e) {
 			// Normal user, show alert and die
-			echo '<div class="alert alert-warning" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Ripple\'s website is in <b>maintenance mode</b>. We are working for you, <b>please come back later.</b></p></div>';
+			echo '<div class="alert alert-warning" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Yozora\'s website is in <b>maintenance mode</b>. We are working for you, <b>please come back later.</b></p></div>';
 			die();
 		}
 	}
@@ -2101,11 +2101,11 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				throw new Exception();
 			}
 			// Mod/admin, show alert and continue
-			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Ripple\'s score system is in <b>maintenance mode</b>. <u>Your scores won\'t be saved until maintenance ends.</u><br><b>Make sure to disable game maintenance mode from the admin control panel as soon as possible!</b></p></div>';
+			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Yozora\'s score system is in <b>maintenance mode</b>. <u>Your scores won\'t be saved until maintenance ends.</u><br><b>Make sure to disable game maintenance mode from the admin control panel as soon as possible!</b></p></div>';
 		}
 		catch(Exception $e) {
 			// Normal user, show alert and die
-			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Ripple\'s score system is in <b>maintenance mode</b>. <u>Your scores won\'t be saved until maintenance ends.</u></b></p></div>';
+			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-cog fa-spin"></i>	Yozoras\'s score system is in <b>maintenance mode</b>. <u>Your scores won\'t be saved until maintenance ends.</u></b></p></div>';
 		}
 	}
 
@@ -2124,11 +2124,11 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				throw new Exception();
 			}
 			// Mod/admin, show alert and continue
-			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-server"></i>	Ripple\'s Bancho server is in maintenance mode. You can\'t play on Ripple right now. Try again later.<br><b>Make sure to disable game maintenance mode from the admin control panel as soon as possible!</b></p></div>';
+			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-server"></i>	Yozora\'s Bancho server is in maintenance mode. You can\'t play on Yozora right now. Try again later.<br><b>Make sure to disable game maintenance mode from the admin control panel as soon as possible!</b></p></div>';
 		}
 		catch(Exception $e) {
 			// Normal user, show alert and die
-			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-server"></i>	Ripple\'s Bancho server is in maintenance mode. You can\'t play on Ripple right now. Try again later.</p></div>';
+			echo '<div class="alert alert-danger" role="alert"><p align="center"><i class="fa fa-server"></i>	Yozora\'s Bancho server is in maintenance mode. You can\'t play on Yozora right now. Try again later.</p></div>';
 		}
 	}
 
@@ -2315,7 +2315,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			/*if (($bsid & 1073741824) > 0) {
 				$host = "osu!mp";
 			} else if (($bsid & 536870912) > 0) {
-				$host = "ripple";
+				$host = "Yozora";
 			} else {
 				$host = "osu!";
 			}*/
@@ -2541,7 +2541,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 
 		if (!hasPrivilege(Privileges::UserPublic)) {
 			echo '<div class="alert alert-danger" role="alert">
-					<p align="center"><i class="fa fa-exclamation-triangle"></i><b>Your account is currently in restricted mode</b> due to inappropriate behavior or a violation of the <a href=\'/p/23\'>rules</a>.<br>You can\'t interact with other users, you can perform limited actions and your user profile and scores are hidden.<br>Read the <a href=\'/p/23\'>rules</a> again carefully, and if you think this is an error, send an email to <b>support@ripple.moe</b>.</p>
+					<p align="center"><i class="fa fa-exclamation-triangle"></i><b>Your account is currently in restricted mode</b> due to inappropriate behavior or a violation of the <a href=\'/p/23\'>rules</a>.<br>You can\'t interact with other users, you can perform limited actions and your user profile and scores are hidden.<br>Read the <a href=\'/p/23\'>rules</a> again carefully, and if you think this is an error, send an email to <b>support@yozora.pw</b>.</p>
 				  </div>';
 		}
 	}
@@ -2829,7 +2829,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				$assignee = "Useless";
 			} else {
 				$rowClass = "";
-				$assignee = '<img class="circle" style="width: 30px; height: 30px; margin-top: 0px;" src="https://a.ripple.moe/' . $report['assigned'] . '"> ' . getUserUsername($report['assigned']);
+				$assignee = '<img class="circle" style="width: 30px; height: 30px; margin-top: 0px;" src="https://a.yozora.pw/' . $report['assigned'] . '"> ' . getUserUsername($report['assigned']);
 			}
 			echo '<tr class="' . $rowClass . '">
 			<td><p class="text-center">'.$report['id'].'</p></td>

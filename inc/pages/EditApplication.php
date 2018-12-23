@@ -2,7 +2,7 @@
 class EditApplication {
 	const PageID = 33;
 	const URL = 'editApplication';
-	const Title = 'Ripple - Edit API application';
+	const Title = 'Yozora - Edit API application';
 	const LoggedIn = true;
 	public $mh_GET = ['id'];
 	public $mh_POST = ['id', 'name', 'description'];

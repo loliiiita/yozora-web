@@ -2,7 +2,7 @@
 class MyAPIApplications {
 	const PageID = 32;
 	const URL = 'myApplications';
-	const Title = 'Ripple - My Applications';
+	const Title = 'Yozora - My Applications';
 	const LoggedIn = true;
 
 	public function P() {
@@ -14,8 +14,8 @@ class MyAPIApplications {
 		?>
 		<div class="narrow-content" style="width:500px">
 			<h1><i class="fa fa-plane"></i> My API applications</h1>
-			<p>The Ripple public API allows developers to easily make applications and utilities that integrate with Ripple. If you don't know what an API is, you probably don't need to do anything on this page.</p>
-			<p><a href="https://en.wikipedia.org/wiki/Application_programming_interface">API (Wikipedia)</a> | <a href="https://git.zxq.co/ripple/api-docs/wiki">Ripple API documentation</a></p>
+			<p>The Yozora public API allows developers to easily make applications and utilities that integrate with Yozora. If you don't know what an API is, you probably don't need to do anything on this page.</p>
+			<p><a href="https://en.wikipedia.org/wiki/Application_programming_interface">API (Wikipedia)</a> | <a href="https://me.me">Yozora API documentation</a></p>
 			<?php
 			if (!$myApps) {
 				echo '<b>Looks like you don\'t have any API applications! (yet!)</b>';

@@ -3,7 +3,7 @@
 class Support {
 	const PageID = 34;
 	const URL = 'support';
-	const Title = 'Ripple - Support us';
+	const Title = 'Yozora - Support us';
 	const LoggedIn = true;
 	public $error_messages = [];
 	public $mh_GET = [];
@@ -36,7 +36,7 @@ class Support {
 					<h1 class="support-color"><i class="fa fa-heart animated infinite pulse"></i>	Support us</h1>
 					<br>
 					<p class="half">
-						We, the <b>Ripple developers</b>, run Ripple in our spare time, and keeping it up is <b>quite expensive</b>, both in money and effort. We have been building Ripple ever since <b>August 2015</b>, and we are doing our best every day to fix bugs, implement features, and generally speaking <b>keeping the server up</b>. If you like Ripple, you should <b>really consider supporting us</b>: it\'d help us a lot to pay all the expenses that come with having such a <b>rapidly growing service</b>.
+						I, the <b>Yozora developer</b>, run Yozora in my spare time, and keeping it up <b>adds up</b>, both in money and effort. I have been building Yozora ever since <b>Late 2018</b>, and I am doing my best every day to fix bugs, implement features, and generally speaking <b>keeping the server up</b>. If you like Yozora, you should <b>really consider supporting me <3</b>: it\'d help us a lot to pay all the expenses that come with having such a <b>fun server</b>!
 					</p>
 				</div>
 				<div class="row"><hr>';
@@ -130,7 +130,7 @@ class Support {
 								}
 
 								echo '</td></tr>
-								<tr><td><input type="hidden" name="on1" value="Ripple user to give donor">Ripple user to give donor</td></tr><tr><td><input type="text" name="os1" maxlength="200" value="'.$_SESSION["username"].'"></td></tr>
+								<tr><td><input type="hidden" name="on1" value="Yozora user to give donor">Yozora user to give donor</td></tr><tr><td><input type="text" name="os1" maxlength="200" value="'.$_SESSION["username"].'"></td></tr>
 								</table>
 								<!-- <input type="hidden" name="currency_code" value="EUR"> -->
 								<input type="hidden" name="business" value="'.$paypalConfig["email"].'">
@@ -153,7 +153,7 @@ class Support {
 							<h3><i class="fa fa-btc"></i>	Prefer Bitcoin?</h3>
 							<b id="supporter-btc" hidden>Send <span id="supporter-btc-price"></span> mBTC to this Bitcoin address:</b><br>
 							132HMmzADGG7fGfwuqUSP7gahTWVLkfZLR<br>
-							<b>Afterwards, please send an email to <u><a href="mailto:howl@ripple.moe">howl@ripple.moe</a></u> containing the transaction hash!</b>
+							<b>Afterwards, please send an email to <u><a href="mailto:contact@ilyt.cc">contact@ilyt.cc</a></u> containing the transaction hash!</b>
 						</div>
 					</div>
 				</div>
@@ -161,7 +161,7 @@ class Support {
 					<hr>
 					<h2><i class="fa fa-question-circle"></i>	I\'ve donated, and now?</h2>
 					<p class="half">
-						You\'ll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven\'t received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b>support@ripple.moe</b>.
+						You\'ll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven\'t received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b>support@yozora.pw</b>.
 						Once we have processed your payment, you\'ll receive an <b>email</b> to the address you\'ve used to sign up and you\'ll get <b>all the donor privileges</b>, except the <b>Discord</b> ones. To get the Discord donor privileges, <b>hover your name</b> in the navbar and select the "<b>Discord donor</b>" option (you\'ll be able to see it once you get the donor privileges).
 					</p>
 				</div>

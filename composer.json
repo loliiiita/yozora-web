@@ -1,5 +1,5 @@
 {
-    "name": "osuripple/ripple",
+    "name": "osuyozora/yozora",
     "require": {
         "ezyang/htmlpurifier": "^4.7",
         "team-reflex/oauth2-discord": "^1.0",

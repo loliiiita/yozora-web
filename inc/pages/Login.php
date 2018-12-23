@@ -3,7 +3,7 @@
 class Login {
 	const PageID = 2;
 	const URL = 'login';
-	const Title = 'Ripple - Login';
+	const Title = 'Yozora - Login';
 	const LoggedIn = false;
 	public $mh_POST = ['u', 'p'];
 	public $error_messages = ['You are not logged in.', 'Session expired. Please login again.', 'Invalid auto-login cookie.', 'You are already logged in.'];

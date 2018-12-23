@@ -1,6 +1,6 @@
 <?php
 /*
- * Ripple functions file
+ * Yozora functions file
  * include this to include the world
 */
 // Include config file and db class
@@ -98,7 +98,7 @@ function redirect($url) {
  * @param (string) ($fn) Output file name
  * @param ($v) Variable to output
 */
-function outputVariable($v, $fn = "/tmp/ripple.txt") {
+function outputVariable($v, $fn = "/tmp/yozoora.txt") {
 	file_put_contents($fn, var_export($v, true), FILE_APPEND);
 }
 
@@ -170,10 +170,10 @@ function getIP() {
 */
 function setTitle($p) {
 	if (isset($_COOKIE['st']) && $_COOKIE['st'] == 1) {
-		// Safe title, so Peppy doesn't know we are browsing Ripple
+		// Safe title, so Peppy doesn't know we are browsing Yozora
 		return '<title>Google</title>';
 	} else {
-		$namesRipple = [
+		$namesYozora = [
 			1 =>   'Custom osu! server',
 			3 =>   'Register',
 			4 =>   'User CP',
@@ -222,12 +222,12 @@ function setTitle($p) {
 			135 => 'Search users by IP',
 			136 => 'Search users by IP - Results'
 		];
-		if (isset($namesRipple[$p])) {
-			return __maketitle('Ripple', $namesRipple[$p]);
+		if (isset($namesYozora[$p])) {
+			return __maketitle('Yozora', $namesYozora[$p]);
 		} else if (isset($namesRAP[$p])) {
-			return __maketitle('RAP', $namesRAP[$p]);
+			return __maketitle('Admin', $namesRAP[$p]);
 		} else {
-			return __maketitle('Ripple', '404');
+			return __maketitle('Yozora', '404');
 		}
 	}
 }
@@ -760,12 +760,12 @@ function countryCodeToReadable($cc) {
 }
 /*
  * getAllowedUsers()
- * Get an associative array, saying whether a user is banned or not on Ripple.
+ * Get an associative array, saying whether a user is banned or not on Yozora.
  *
  * @returns (array) see above.
 
 function getAllowedUsers($by = 'username') {
-	// get all the allowed users in Ripple
+	// get all the allowed users in Yozora
 	$allowedUsersRaw = $GLOBALS['db']->fetchAll('SELECT '.$by.', allowed FROM users');
 	// Future array containing all the allowed users.
 	$allowedUsers = [];
@@ -873,8 +873,8 @@ function updateLatestActivity($u) {
 /*
  * updateSafeTitle
  * Updates the st cookie, if 1 title is "Google" instead
- * of Ripple - pagename, so Peppy doesn't know that
- * we are browsing Ripple
+ * of Yozora - pagename, so Peppy doesn't know that
+ * we are browsing Yozora
 */
 function updateSafeTitle() {
 	$safeTitle = $GLOBALS['db']->fetch('SELECT safe_title FROM users_stats WHERE username = ?', $_SESSION['username']);
@@ -1277,7 +1277,7 @@ function getChangelog() {
 	echo '<p align="center"><h1><i class="fa fa-code"></i>	Changelog</h1>';
 	echo 'Welcome to the changelog page.<br>As soon as a change is made, it will be posted here.<br>Hover a change to know when it was done.<br><br>';
 	if (!file_exists(dirname(__FILE__).'/../../ci-system/ci-system/changelog.txt')) {
-		echo '<b>Unfortunately, no changelog for this Ripple instance is available. Slap the sysadmin and tell him to configure it.</b>';
+		echo '<b>Unfortunately, no changelog for this Yozora instance is available. Slap the sysadmin and tell him to configure it.</b>';
 	} else {
 		$_GET['page'] = (isset($_GET['page']) && $_GET['page'] > 0 ? intval($_GET['page']) : 1);
 		$data = getChangelogPage($_GET['page']);
@@ -1873,7 +1873,7 @@ function multiaccCheckIP($ip) {
 	/*$multiUsername = $GLOBALS["db"]->fetch("SELECT username FROM users WHERE id = ?", [$multiUserID]);
 
 	if ($multiUsername) {
-		@Schiavo::CM("User **" . current($multiUsername) . "** (https://ripple.moe/?u=$multiUserID) tried to create a multiaccount (**" . $_POST['u'] . "**) from IP **" . $ip . "**");
+		@Schiavo::CM("User **" . current($multiUsername) . "** (https://yozora.pw/?u=$multiUserID) tried to create a multiaccount (**" . $_POST['u'] . "**) from IP **" . $ip . "**");
 	}
 	$GLOBALS["db"]->execute("UPDATE users SET notes=CONCAT(COALESCE(notes, ''),'\n-- Multiacc attempt (".$_POST["u"].") from IP ".$ip."') WHERE id = ?", [$multiUserID]); */
 }
@@ -2059,16 +2059,16 @@ function giveDonor($userID, $months, $add=true) {
 	if ($months >= 20) $TheMoreYouKnow = "Did you know that your donation accounts for roughly one month of keeping the main server up? That's crazy! Thank you so much!";
 	else if ($months >= 15 && $months < 20) $TheMoreYouKnow = "Normally we would say how much of our expenses a certain donation pays for, but your donation is halfway through paying the domain for 1 year and paying the main server for 1 month. So we don't really know what to say here: your donation pays for about 75% of keeping the server up one month. Thank you so much!";
 	else if ($months >= 10 && $months < 15) $TheMoreYouKnow = "You know what we could do with the amount you donated? We could probably renew the domain for one more year! Although your money is more likely to end up being spent on paying the main server. Thank you so much!";
-	else if ($months >= 4 && $months < 10) $TheMoreYouKnow = "Your donation will help to keep the beatmap mirror we set up for Ripple up for one month! Thanks a lot!";
+	else if ($months >= 4 && $months < 10) $TheMoreYouKnow = "Your donation will help to keep the beatmap mirror we set up for Yozora up for one month! Thanks a lot!";
 	else if ($months >= 1 && $months < 4) $TheMoreYouKnow =  "With your donation, we can afford to keep up the error logging server, which is a little VPS on which we host an error logging service (Sentry). Thanks a lot!";
 	
 	global $MailgunConfig;
 	$mailer = new SimpleMailgun($MailgunConfig);
 	$mailer->Send(
-		'Ripple <noreply@'.$MailgunConfig['domain'].'>', $userData['email'],
+		'Yozora <noreply@'.$MailgunConfig['domain'].'>', $userData['email'],
 		'Thank you for donating!',
 		sprintf(
-			"Hey %s! Thanks for donating to Ripple. It's thanks to the support of people like you that we can afford keeping the service up. Your donation has been processed, and you should now be able to get the donator role on discord, and have access to all the other perks listed on the \"Support us\" page.<br><br>%s<br><br>Your donor expires in %s months. Until then, have fun!<br>The Ripple Team",
+			"Hey %s! Thanks for donating to Yozora. It's thanks to the support of people like you that we can afford keeping the service up. Your donation has been processed, and you should now be able to get the donator role on discord, and have access to all the other perks listed on the \"Support us\" page.<br><br>%s<br><br>Your donor expires in %s months. Until then, have fun!<br>The Yozora Team",
 			$username,
 			$TheMoreYouKnow,
 			$monthsExpire

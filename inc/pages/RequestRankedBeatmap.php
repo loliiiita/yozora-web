@@ -3,7 +3,7 @@
 class RequestRankedBeatmap {
 	const PageID = 31;
 	const URL = 'RequestRankedBeatmap';
-	const Title = 'Ripple - Request Beatmap Ranking';
+	const Title = 'Yozora - Request Beatmap Ranking';
 	const LoggedIn = true;
 	public $error_messages = [];
 	public $mh_GET = [];
@@ -20,7 +20,7 @@ class RequestRankedBeatmap {
 		<div id="content">
 			<div align="center">
 				<h1><i class="fa fa-music"></i> Request beatmap ranking</h1>
-				<h4>Here you can send a request to rank an unranked beatmap on ripple.</h4>';
+				<h4>Here you can send a request to rank an unranked beatmap on Yozora.</h4>';
 				if ($myRequests["count"] >= $ScoresConfig["rankRequestsPerUser"]) {
 					echo '<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i>	You can send only <b>'.$ScoresConfig["rankRequestsPerUser"].' rank requests</b> every 24 hours. <b>Please come back tomorrow.</b></div>';
 					return;

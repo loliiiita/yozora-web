@@ -53,7 +53,7 @@ try {
 			redirect('index.php');
 		break;
 		case 'u':
-			redirect('../ripple//u/'.$_GET['data'].'&m=0');
+			redirect('../namejeff//u/'.$_GET['data'].'&m=0');
 		break;
 		case 'recoverPassword':
 			D::RecoverPassword();

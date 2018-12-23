@@ -3,7 +3,7 @@
 class UserLookup {
 	const PageID = 28;
 	const URL = 'lookup';
-	const Title = 'Ripple - User lookup';
+	const Title = 'Yozora - User lookup';
 	const LoggedIn = true;
 
 	public function P() {

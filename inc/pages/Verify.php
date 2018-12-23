@@ -2,7 +2,7 @@
 class Verify {
 	const PageID = 38;
 	const URL = 'verify';
-	const Title = 'Ripple - Verify your account';
+	const Title = 'Yozora - Verify your account';
 	const LoggedIn = false;
 	public $mh_GET = ["u"];
 
@@ -25,11 +25,11 @@ class Verify {
 				<h1><i class="fa fa-bus"></i> Almost there...</h1>
 				<p>
 					<b>Your account has been created, but it\'s not active yet!</b> Please log in to <b>Bancho</b> to activate it.
-					You don\'t know how to connect to Ripple? Follow <a target="_blank" href="/p/16&id=1">this guide</a>!<br>
+					You don\'t know how to connect to Yozora? Follow <a target="_blank" href="/p/16&id=1">this guide</a>!<br>
 				</p>
 				<div class="alert alert-danger animated shake">
 					<i class="fa fa-exclamation-triangle"></i>
-					<b>Do not let anyone except yourself log into your ripple account from their computer!</b> Get on our <a href="'.$discordConfig["invite_url"].'">Discord server</a>\'s #help channel instead so that we can help you out if you have trouble connecting.
+					<b>Do not let anyone except yourself log into your Yozora account from their computer!</b> Get on our <a href="'.$discordConfig["invite_url"].'">Discord server</a>\'s #help channel instead so that we can help you out if you have trouble connecting.
 				</div>
 				<hr>
 				<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>

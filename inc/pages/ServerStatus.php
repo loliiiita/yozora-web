@@ -3,7 +3,7 @@
 class ServerStatus {
 	const PageID = 27;
 	const URL = 'status';
-	const Title = 'Ripple - Server Status';
+	const Title = 'Yozora - Server Status';
 	const LoggedIn = true;
 	public $error_messages = [];
 	public $mh_GET = [];
@@ -17,7 +17,7 @@ class ServerStatus {
 			<div id="content-wide">
 				<div align="center">
 					<h1><i class="fa fa-cogs"></i> Server status</h1>
-					<b>Unfortunately, no server status for this Ripple instance is available. Slap the sysadmin off telling him to configure it.</b>
+					<b>Unfortunately, no server status for this Yozora instance is available. Slap the sysadmin off telling him to configure it.</b>
 				</div>
 			</div>';
 		} else {
@@ -38,7 +38,7 @@ class ServerStatus {
 								<tr><td><p class="text-center"><i class="fa fa-flash"></i>	Bancho</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['bancho_url'].'/api/v1/serverStatus')).'</p></td></tr>
 								<tr><td><p class="text-center"><i class="fa fa-gamepad"></i>	Scores</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['lets_url'].'/api/v1/status')).'</p></td></tr>
 								<tr><td><p class="text-center"><i class="fa fa-picture-o"></i>	Avatars</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['avatars_url'].'/status')).'</p></td></tr>
-								<tr><td><p class="text-center"><i class="fa fa-code"></i>	Ripple API</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['api_url'].'/status')).'</p></td></tr>
+								<tr><td><p class="text-center"><i class="fa fa-code"></i>	Yozora API</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['api_url'].'/status')).'</p></td></tr>
 								<tr><td><p class="text-center"><i class="fa fa-music"></i>	Beatmaps</p></td><td><p class="text-center">'.serverStatusBadge(checkServiceStatus($ServerStatusConfig['service_status']['beatmap_url'].'/status.json')).'</p></td></tr>
 							</tbody>
 						</table>

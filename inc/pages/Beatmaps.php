@@ -3,14 +3,14 @@
 class Beatmaps {
 	const PageID = 37;
 	const URL = 'Beatmaps';
-	const Title = 'Ripple - Carroponte';
+	const Title = 'Yozora - Carroponte';
 
 	public function P() {
-		echo('<iframe width="560" height="315" src="https://www.youtube.com/embed/G_QfYsmNIHQ?autoplay=1" frameborder="0" allowfullscreen></iframe><br>');
+		/*echo('<iframe width="560" height="315" src="https://www.youtube.com/embed/G_QfYsmNIHQ?autoplay=1" frameborder="0" allowfullscreen></iframe><br>');
 		for ($i=0; $i < 100; $i++) {
 			echo '<h3 class="carroponte" hidden>O-oooooooooo-AAAAE-A-A-I-A-U-JO-oooooooooooo-AAE-O-A-A-U-U-A-E-eee-ee-eee-AAAAE-A-E-I-E-A-JO-ooo-oo-oo-oo-EEEEO-A-AAA-AAAA</h3>';
-		}
-		/*
+		} */
+		
 		$beatmaps = $GLOBALS["db"]->fetchAll("SELECT* FROM beatmaps WHERE ranked >= 2 GROUP BY beatmapset_id ORDER BY latest_update DESC LIMIT 51");
 		$c = 0;
 		P::GlobalAlert();
@@ -57,7 +57,7 @@ class Beatmaps {
 							<div class="card hovercard">
 								<div class="cardheader" style="background: url(\''.$img.'\');"></div>';
 								if ($beatmap["ranked_status_freezed"] == 1)
-									echo '<div class="corner-ribbon">Ranked on Ripple!</div>';
+									echo '<div class="corner-ribbon">Ranked on Yozora!</div>';
 								echo '<div class="info">
 									<div class="play-download">
 										<a class="btn btn-circle btn-pink btn-sm" onclick="play('.$beatmap["beatmapset_id"].')"><i id="icon_'.$beatmap["beatmapset_id"].'" class="fa fa-play"></i></a>
@@ -94,6 +94,6 @@ class Beatmaps {
 
 			echo '</div>
 			</div>
-		</div>';*/
+		</div>';
 	}
 }
