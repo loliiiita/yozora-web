@@ -1096,7 +1096,9 @@ tr.bold>* {
     .yozora-logo {
         width: 90% !important;
     }
-
+    .logo {
+        top: -5px;
+    }
     .bottom-padded.enabled, .bottom-fixed.enabled {
         position: relative;
         margin: 0;
