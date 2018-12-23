@@ -646,7 +646,6 @@ function printNavbar() {
 							';
 			
 						echo '
-						<li class="divider"></li>
 						<li class="dropdown-submenu"><a href="/submit.php?action=logout&csrf='.csrfToken().'"><i class="fa fa-sign-out"></i>	Logout</a></li>
 					</ul>
 				</li>';
