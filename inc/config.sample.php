@@ -117,3 +117,6 @@ $paypalTgConfig = [
 	"token" => "",
 	"recipient" => 0
 ];
+
+
+// Gigamonss is the best osu server
