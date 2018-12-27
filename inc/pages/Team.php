@@ -46,7 +46,7 @@ class Team {
 					<i class="fa fa-circle fa-bullet-list"></i>	<b>jrosdahl</b>, for <a href="https://github.com/jrosdahl/miniircd" target="_blank">miniircd</a>, used as a base for our IRC server.<br>
 					miniircd is licensed under GPL v2. Our implementation can be found <a href="https://github.com/osuYozora/pep.py/src/master/irc/ircserver.py" target="_blank">here</a>.<br>
 					<div class="small-br"></div>
-					<i class="fa fa-circle fa-bullet-list"></i>	<b>Jackson Isiah</b>, for Yozora\'s logo.
+					<i class="fa fa-circle fa-bullet-list"></i>	<b><a href="https://twitter.com/jacksonisiahpro">Jackson Isaiah (jacksonisiah)</a></b>, for Yozora\'s logo.
 					<div class="small-br"></div>
 					<i class="fa fa-circle fa-bullet-list"></i>	<b><a href="#" data-toggle="modal" data-target="#donorsModal">Everyone</a></b> who has supported the Yozora project by donating or inviting other people.<br><b><i>Without you, Yozora would not have become what it is now.</b></i>';
 				echo '<hr><h3><i class="fa fa-reply"></i>	How to contact the team</h3>
