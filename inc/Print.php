@@ -467,7 +467,7 @@ class P {
 				if ($userStatsData['country'] == $k)
 					$sd = "selected";
 				$ks = strtolower($k);
-				if (!file_exists(dirname(__FILE__) . "/../images/flags/$ks.png"))
+				if (!file_exists(dirname(__FILE__) . "/images/flags/$ks.png"))
 					$ks = "xx";
 				echo "<option value='$k' $sd data-content=\""
 					. "<img src='images/flags/$ks.png' alt='$k'>"
