@@ -377,7 +377,7 @@ class P {
 			// Get user data
 			$userData = $GLOBALS['db']->fetch('SELECT * FROM users WHERE id = ? LIMIT 1', $_GET['id']);
 			$userStatsData = $GLOBALS['db']->fetch('SELECT * FROM users_stats WHERE id = ? LIMIT 1', $_GET['id']);
-			$ips = $GLOBALS['db']->fetchAll('SELECT ip FROM ip_user WHERE userid = ?', $_GET['id']);
+			$ips = $GLOBALS['db']->fetchAll('SELECT ip, occurencies FROM ip_user WHERE userid = ?', $_GET['id']);
 			// Check if this user exists
 			if (!$userData || !$userStatsData) {
 				throw new Exception("That user doesn't exist");
@@ -607,7 +607,7 @@ class P {
 			</tr>';
 			echo '<tr><td>IPs<br><i><a href="/p/136&uid=' . $_GET["id"] . '">(search users with these IPs)</a></i></td><td><ul>';
 			foreach ($ips as $ip) {
-				echo "<li>$ip[ip] <a class='getcountry' data-ip='$ip[ip]' title='Click to retrieve IP country'>(?)</a></li>";
+				echo "<li>$ip[ip] <a class='getcountry' data-ip='$ip[ip]' title='Click to retrieve IP country'>(?)</a> ($ip[occurencies])</li>";
 			}
 			echo '</ul></td></tr>';
 			echo '</tbody></form>';
