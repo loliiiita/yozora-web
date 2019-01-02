@@ -8,9 +8,9 @@ class Screenshots {
 	public function P() {
         $userid = $_GET["id"];
        
-		$screenshots = $GLOBALS["db"]->fetchAll("SELECT ssid FROM screenshots WHERE userid = ?", $userid);
+		$screenshots = $GLOBALS["db"]->fetchAll("SELECT * FROM screenshots WHERE userid = ?", $userid);
 		//$c = 0;
-        $user = $GLOBALS["db"]->fetchAll("SELECT username FROM users WHERE id = ?", $userid);
+        $user = $GLOBALS["db"]->fetchAll("SELECT * FROM users_stats WHERE id = ?", $userid);
         $username = $user["username"];
         P::GlobalAlert();
 		echo '
