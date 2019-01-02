@@ -15,12 +15,12 @@ class Screenshots {
 		echo '
 		<div id="content">
 			<div align="center">
-                <h1><i class="fa fa-image"></i> '.$user.'\'s Screenshots </h1>
+                <h1><i class="fa fa-image"></i> '.$user[0].'\'s Screenshots </h1>
 				<div class="container">
 				';
             foreach ($screenshots as $j => $ss) {
                 echo $ss;
-                echo "<a href='https://yozora.pw/ss/'".$ss.".jpg'><img src='https://yozora.pw/ss/'".$ss.".jpg' /></a>";
+                echo "<a href='https://yozora.pw/ss/'".$ss[0].".jpg'><img src='https://yozora.pw/ss/'".$ss[0].".jpg' /></a>";
             } // probably wont work lol
 			echo '</div>
 			</div>
