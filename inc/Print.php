@@ -1582,7 +1582,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			echo '
 			 <tr>
 				<td id="stats-name">Play Time</td>
-				<td id="stats-value"><b>'.$hours.':'.$minutes.':'.$seconds.'</b></td>
+				<td id="stats-value"><b>'.$hours.' hours '.$minutes.' minutes '.$seconds.' seconds</b></td>
 			</tr>';
 			echo '<tr>
 				<td id="stats-name">Registered</td>
