@@ -1275,7 +1275,7 @@ function getChangelog() {
 	sessionCheck();
 	echo '<p align="center"><h1><i class="fa fa-code"></i>	Changelog</h1>';
 	echo 'Welcome to the changelog page.<br>As soon as a change is made, it will be posted here.<br>Hover a change to know when it was done.<br><br>';
-	if (!file_exists(dirname(__FILE__).'/../../ci-system/ci-system/changelog.txt')) {
+	if (!file_exists(dirname(__FILE__).'/../../ci_meme/changelog.txt')) {
 		echo '<b>Unfortunately, no changelog for this Yozora instance is available. Slap the sysadmin and tell him to configure it.</b>';
 	} else {
 		$_GET['page'] = (isset($_GET['page']) && $_GET['page'] > 0 ? intval($_GET['page']) : 1);
@@ -1307,7 +1307,7 @@ function getChangelog() {
 function getChangelogPage($p = 1) {
 	global $ChangelogConfig;
 	// Retrieve data from changelog.json
-	$data = explode("\n", file_get_contents(dirname(__FILE__).'/../../ci-system/ci-system/changelog.txt'));
+	$data = explode("\n", file_get_contents(dirname(__FILE__).'/../../ci_meme/changelog.txt'));
 	$ret = [];
 	// Check there are enough commits for the current page.
 	$initoffset = ($p - 1) * 50;
