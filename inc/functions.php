@@ -236,6 +236,7 @@ function setTitle($p) {
 function __maketitle($b1, $b2) {
 		return "<title>$b2 - $b1</title>";
 }
+// oopsie
 /*
  * printPage
  * Prints the content of a page.
