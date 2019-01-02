@@ -18,8 +18,8 @@ class Screenshots {
                 <h1><i class="fa fa-image"></i> '.$user["username"].'\'s Screenshots </h1>
 				<div class="container">
 				';
-            foreach ($screenshots as $ss) {
-                echo "<a href='https://yozora.pw/ss/'".$ss["ssid"].".jpg'><img src='https://yozora.pw/ss/'".$ss["ssid"].".jpg' /></a>";
+            foreach ($screenshots as $j => $ss) {
+                echo "<a href='https://yozora.pw/ss/'".$ss['ssid'].".jpg'><img src='https://yozora.pw/ss/'".$ss['ssid'].".jpg' /></a>";
             } // probably wont work lol
 			echo '</div>
 			</div>
