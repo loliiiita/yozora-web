@@ -1575,7 +1575,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<td id="stats-value"><b>'.timeDifference(time(), $latestActivity).'</b></td>
 			</tr>';
 			}
-			$init = playTime;
+			$init = $playTime;
 			$hours = floor($init / 3600);
 			$minutes = floor(($init / 60) % 60);
 			$seconds = $init % 60;
