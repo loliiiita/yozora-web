@@ -595,6 +595,7 @@ function printNavbar() {
 						'.(file_exists(dirname(__FILE__).'/../blog/anchor/config/db.php') ? '<li class="dropdown-submenu"><a href="blog/"><i class="fa fa-anchor"></i>	Blog</a></li>' : '').'
 						<li class="divider"></li>
 						<li class="dropdown-submenu"><a href="/p/21"><i class="fa fa-info-circle"></i>	About</a></li>
+						<li class="dropdown-submenu"><a href="/p/23"><i class="fa fa-github"></i>	Github</a></li>
 					</ul>
 				</li>';
 	}
