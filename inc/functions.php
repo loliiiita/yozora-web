@@ -621,6 +621,7 @@ function printNavbar() {
 						echo '
 						<li class="dropdown-submenu"><a href="'.$discordConfig["invite_url"].'"><i class="fa fa-comment"></i>	Discord</a></li>
 						<li class="dropdown-submenu"><a href="/p/21"><i class="fa fa-info-circle"></i>	About</a></li>
+						<li class="dropdown-submenu"><a href="/p/23"><i class="fa fa-github"></i>	Github</a></li>
 					</ul>
 				</li>';
 		echo '<li><a class="support-color" href="/support"><b><i class="fa fa-heart" ></i>	Support us</a></b></li>';
