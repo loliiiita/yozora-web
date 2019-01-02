@@ -7,7 +7,9 @@ class Screenshots {
 
 	public function P() {
         $userid = (int)$_GET["id"];
-       
+        var_dump($_GET);
+        exit();
+        
 		$screenshots = $GLOBALS["db"]->fetchAll("SELECT * FROM screenshots WHERE userid = ?", $userid);
 		//$c = 0;
         $user = $GLOBALS["db"]->fetchAll("SELECT * FROM users_stats WHERE id = ?", $userid);
