@@ -1,7 +1,7 @@
 <?php
 
 class Screenshots {
-	const PageID = 420;
+	const PageID = 15;
 	const URL = 'Screenshots';
 	const Title = 'Yozora - Screenshots';
 
