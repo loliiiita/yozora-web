@@ -31,6 +31,7 @@ require_once $df.'/pages/Leaderboard_Relax.php';
 require_once $df.'/pages/Leaderboard_Score.php';
 require_once $df.'/pages/PasswordFinishRecovery.php';
 require_once $df.'/pages/ServerStatus.php';
+require_once $df.'/pages/getScreenShotsPage.php';
 require_once $df.'/pages/UserLookup.php';
 require_once $df.'/pages/RequestRankedBeatmap.php';
 require_once $df.'/pages/MyAPIApplications.php';
@@ -63,6 +64,7 @@ $pages = [
 	new Leaderboard_Relax(),
 	new Leaderboard_Score(),
 	new CreateClan(),
+	new Screenshots(),
 ];
 // Set timezone to UTC
 date_default_timezone_set('Europe/Rome');
