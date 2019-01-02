@@ -1577,8 +1577,8 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			}
 			 echo '<tr>
 				<td id="stats-name">Play Time</td>
-				<td id="stats-value"><b>'.timeDifference(time(), $playTime).'</b></td>
-			</tr>';
+				<td id="stats-value"><b>'.gmdate("H:i:s", $playTime).'</b></td>
+			</tr>'
 			echo '<tr>
 				<td id="stats-name">Registered</td>
 				<td id="stats-value"><b>'.timeDifference(time(), $userData["register_datetime"]).'</b></td>
