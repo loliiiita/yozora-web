@@ -1575,10 +1575,15 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<td id="stats-value"><b>'.timeDifference(time(), $latestActivity).'</b></td>
 			</tr>';
 			}
-			 echo '<tr>
+			$init = playTime;
+			$hours = floor($init / 3600);
+			$minutes = floor(($init / 60) % 60);
+			$seconds = $init % 60;
+			
+			 <tr>
 				<td id="stats-name">Play Time</td>
-				<td id="stats-value"><b>'.gmdate("H:i:s", $playTime).'</b></td>
-			</tr>'
+				<td id="stats-value"><b>echo "$hours:$minutes:$seconds"</b></td>
+			</tr>
 			echo '<tr>
 				<td id="stats-name">Registered</td>
 				<td id="stats-value"><b>'.timeDifference(time(), $userData["register_datetime"]).'</b></td>
