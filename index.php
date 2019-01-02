@@ -93,7 +93,7 @@ if (isset($_GET['p'])) {
 	
 
     <!-- Dynamic title -->
-   <title> <?php echo $title; ?> </title>
+    <?php echo $title; ?>
 
 	<?php
 if ($p == 27) {

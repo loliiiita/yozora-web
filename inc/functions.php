@@ -234,7 +234,7 @@ function setTitle($p) {
 	}
 }
 function __maketitle($b1, $b2) {
-		return "$b2 - $b1";
+		return "<title>$b2 - $b1</title>";
 }
 // oopsie
 /*
