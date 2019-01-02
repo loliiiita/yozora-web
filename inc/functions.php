@@ -598,7 +598,7 @@ function printNavbar() {
 						<li class="dropdown-submenu"><a href="/p/23"><i class="fa fa-github"></i>	Github</a></li>
 					</ul>
 				</li>';
-	}
+	} 
 	// Logged in left elements
 	if (checkLoggedIn()) {
 		// Just an easter egg that you'll probably never notice, unless you do it on purpose.
