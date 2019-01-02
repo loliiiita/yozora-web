@@ -79,10 +79,18 @@ if (isset($_GET['p'])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta name="description"               content="Welcome to yozora. We are an osu! private server featuring 3 mods osu!, relax and auto, all 3 integrated into a single server, each with their own individual PP system, pp-sorted leaderboards, fully-functioning multiplayer, fully-functioning spectator, and many others."/>
+	<meta name="keywords"                  content="osu, osu private server, osu server, yozora, akatsuki, akatsuki relax, gatari, ripple, relax server, osu!">
+	<meta name="theme-color"               content="#080808"/>
+	<meta name="color"                     content="#080808"/>
+	<meta property="og:url"                content="https://yozora.pw/"/>
+	<meta property="og:type"               content="website"/>
+	<meta property="og:title"              content="<?php echo $title; ?>"/>
+	<meta property="og:description"        content="Welcome to yozora!"/> 
+	<meta property="og:image"              content="https://yozora.pw/images/logos/circle.png"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 
     <!-- Dynamic title -->
     <?php echo $title; ?>
