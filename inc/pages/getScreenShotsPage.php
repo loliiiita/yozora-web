@@ -8,19 +8,19 @@ class Screenshots {
 	public function P() {
         $userid = $_GET["id"];
        
-		$screenshots = $GLOBALS["db"]->fetchAll("SELECT* FROM screenshots WHERE userid = ?", $userid);
+		$screenshots = $GLOBALS["db"]->fetchAll("SELECT ssid FROM screenshots WHERE userid = ?", $userid);
 		//$c = 0;
-        $user = $GLOBALS["db"]->fetchAll("SELECT * FROM users WHERE id = ?", $userid);
+        $user = $GLOBALS["db"]->fetchAll("SELECT username FROM users WHERE id = ?", $userid);
         P::GlobalAlert();
 		echo '
 		<div id="content">
 			<div align="center">
-                <h1><i class="fa fa-image"></i> '.$user["username"].'\'s Screenshots </h1>
+                <h1><i class="fa fa-image"></i> '.$user.'\'s Screenshots </h1>
 				<div class="container">
 				';
             foreach ($screenshots as $j => $ss) {
                 echo $ss;
-                echo "<a href='https://yozora.pw/ss/'".$ss['ssid'].".jpg'><img src='https://yozora.pw/ss/'".$ss['ssid'].".jpg' /></a>";
+                echo "<a href='https://yozora.pw/ss/'".$ss.".jpg'><img src='https://yozora.pw/ss/'".$ss.".jpg' /></a>";
             } // probably wont work lol
 			echo '</div>
 			</div>
