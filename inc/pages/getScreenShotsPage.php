@@ -20,8 +20,7 @@ class Screenshots {
 				<div class="container">
 				';
             foreach ($screenshots as $j => $ss) {
-                echo $ss["ssid"];
-                echo "<a href='https://yozora.pw/ss/'".$ss[0].".jpg'><img src='https://yozora.pw/ss/'".$ss[0].".jpg' /></a>";
+                echo "<a href='https://yozora.pw/ss/'".$ss["ssid"].".jpg'><img src='https://yozora.pw/ss/'".$ss["ssid"].".jpg' /></a><br>";
             } // probably wont work lol
 			echo '</div>
 			</div>
