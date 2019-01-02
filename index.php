@@ -121,8 +121,8 @@ if ($p == 27) {
     <!-- Datepicker CSS -->
     <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 	
-	<!-- Yozora custom CSS
-	<link href="/css/yozora.css" rel="stylesheet"> -->
+	<!-- Yozora custom CSS  -->
+	<link href="/css/yozora.css" rel="stylesheet">
 
     <!-- Animate CSS -->
     <link rel="stylesheet" href="/css/animate.css">
@@ -153,7 +153,7 @@ $status = '';
 if ($model !== 'old') {
 	P::Messages();
 }
-if ($p < 100) {
+if ($p < 100 || $p > 200) {
 	// Normal page, print normal layout (will fix this in next commit, dw)
 	echo '
         <div class="container">
