@@ -1581,9 +1581,9 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			$seconds = $init % 60;
 			echo '
 			 <tr>
-				<td id="stats-name">Play Time</td>';
-				<td id="stats-value"><b>echo "$hours:$minutes:$seconds"</b></td>
-			</tr>"
+				<td id="stats-name">Play Time</td>'
+				<td id="stats-value"><b>'.$hours.':'.$minutes.':'.$seconds.'</b></td>
+			</tr>';
 			echo '<tr>
 				<td id="stats-name">Registered</td>
 				<td id="stats-value"><b>'.timeDifference(time(), $userData["register_datetime"]).'</b></td>
