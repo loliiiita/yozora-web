@@ -1330,6 +1330,7 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 			$usernameAka = $userData['username_aka'];
 			$level = $userData['level_'.$modeForDB];
 			$latestActivity = $userData['latest_activity'];
+			$playTime = $userData['playtime_'.$modeForDB];
 			$silenceEndTime = $userData['silence_end'];
 			$silenceReason = $userData['silence_reason'];
 			$currentStatus = $userData['current_status'];
@@ -1574,6 +1575,10 @@ WHERE users.$kind = ? LIMIT 1", [$u]);
 				<td id="stats-value"><b>'.timeDifference(time(), $latestActivity).'</b></td>
 			</tr>';
 			}
+			 echo '<tr>
+				<td id="stats-name">Play Time</td>
+				<td id="stats-value"><b>'.timeDifference(time(), $playTime).'</b></td>
+			</tr>';
 			echo '<tr>
 				<td id="stats-name">Registered</td>
 				<td id="stats-value"><b>'.timeDifference(time(), $userData["register_datetime"]).'</b></td>
