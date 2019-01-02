@@ -6,7 +6,7 @@ class Screenshots {
 	const Title = 'Yozora - Screenshots';
 
 	public function P() {
-        $userid = $_GET["id"];
+        $userid = (int)$_GET["id"];
        
 		$screenshots = $GLOBALS["db"]->fetchAll("SELECT * FROM screenshots WHERE userid = ?", $userid);
 		//$c = 0;
