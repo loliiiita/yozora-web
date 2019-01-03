@@ -10,8 +10,8 @@ class Leaderboard_Auto {
 		P::MaintenanceStuff();
 
 		global $ScoresConfig;
-        echo "<h2>Relax Leaderboard</h2>";
-		echo "<a href='/leaderboard'>Regular</a> | <b><a href='/relaxboard'>Relax</a></b> | <a href='/scoreboard'>Score</a>";
+        echo "<h2>AutoPilot Leaderboard</h2>";
+		echo "<a href='/leaderboard'>Regular</a> | <a href='/relaxboard'>Relax</a> | <a href='/scoreboard'>Score</a> | <b><a href='/autoboard'>AutoPilot</a></b>";
 		// Leaderboard names (to bold the selected mode)
 		$modesText = [0 => 'osu!standard', 1 => 'Taiko', 2 => 'Catch the Beat', 3 => 'osu!mania'];
 		// Set $m value to 0 if not set
