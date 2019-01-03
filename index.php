@@ -79,7 +79,7 @@ if (isset($_GET['p'])) {
 <html lang="en">
 
 <head>
-<meta name="description"               content="Welcome to Yozora. We are an private osu! server featuring Standard, Relax and Autopilot rankings, all 3 integrated into a single server, each with their own individual PP system, pp-sorted leaderboards, fully-functioning multiplayer and spectator, and many other neat features, come join us!"/>
+<meta name="description"               content="Welcome to Yozora. We are a private osu! server featuring Standard, Relax and Autopilot rankings, all 3 integrated into a single server, each with their own individual PP system, pp-sorted leaderboards, fully-functioning multiplayer and spectator, and many other neat features, come join us!"/>
 	<meta name="keywords"                  content="osu, osu private server, osu server, yozora, akatsuki, akatsuki relax, gatari, ripple, relax server, osu!">
 	<meta name="theme-color"               content="#080808"/>
 	<meta name="color"                     content="#080808"/>
@@ -409,9 +409,9 @@ switch ($p) {
 					}
 
 					$("#supporter-prices").html(str);
-					//$("#supporter-btc-price").html(priceMBTC);
+					
 					$("#paypal-supporter-period").val(months+" months");
-					//$("#pay").attr("href", "https://paypal.me/jacksonisiahpro/"+priceEUR);
+					
 					$("#paypal-price").html(priceEUR);
 				};
 
