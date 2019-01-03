@@ -48,7 +48,7 @@ class Support {
 						';
 					} else {
 						echo '
-						<h2><i class="fa fa-frown-o"></i>	You are not a donor</h2>
+						<h2><i class="fa fa-frown-o"></i>	You are not a donor!</h2>
 						<b>You don\'t have a Donor tag at the moment.</b><br>
 						Follow the instructions below to get it.
 						';
@@ -117,16 +117,15 @@ class Support {
 					<h2><i class="fa fa-credit-card"></i>	How do I become a donor?</h2>
 					<h4>Read carefully</h4>
 					<p class="half">
-						You may donate through either <b>PayPal</b> (or credit/debit card linked to PayPal) or <b>Bitcoin</b>. Use the <b>slider</b> below to choose the amount of months you\'d like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate € 4 instead of € 3.51, you will only be given one donor month.<br><br>
+						You may donate through <b>PayPal</b> (or credit/debit card linked to PayPal). Use the <b>slider</b> below to choose the amount of months you\'d like to have the donor benefits, and the cost will be instantly calculated. Remember that if, for instance, you choose to donate €4 instead of €3.51, you will only be given one donor month.<br><br>
 						<div class="slider" style="width: 100%;" data-slider-min="1" data-slider-max="'.$maxDonor.'" data-slider-value="1" data-slider-tooltip="hide"></div><br>
 						<span id="supporter-prices"></span>
 					</p>
-					<hr>
 				</div>
 				<div class="row" align="center">
 					<div class="col-sm-6">
-						<div class="col-padding">
-							<h3><i class="fa fa-paypal"></i>	Prefer PayPal?</h3></h3>
+						<div class="half">
+							<h3><i class="fa fa-paypal"></i>	Donation area</h3></h3>
 							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_self">
 								<table>
 								<tr><td><input type="hidden" name="on0" value="Period">Period</td></tr><tr><td>';
@@ -168,7 +167,7 @@ class Support {
 					<h2><i class="fa fa-question-circle"></i>	I\'ve donated, and now?</h2>
 					<p class="half">
 						You\'ll have to wait until we verify and process your payment. It can take up to <b>12 hours</b>. If 12 hours have passed and you still haven\'t received your Donor tag, contact a <b>Dev/Community Manager</b> in our Discord server or send an email to <b>support@yozora.pw</b>.
-						Once we have processed your payment, you\'ll receive an <b>email</b> to the address you\'ve used to sign up and you\'ll get <b>all the donor privileges</b>, except the <b>Discord</b> ones. To get the Discord donor privileges, <b>hover your name</b> in the navbar and select the "<b>Discord donor</b>" option (you\'ll be able to see it once you get the donor privileges).
+						Once we have processed your payment, you\'ll receive an <b>email</b> to the address you\'ve used to sign up and you\'ll get <b>all the donor privileges</b>, except the <b>Discord</b> ones. To get the Discord donor privileges, <b>contact a admin</b> in the Discord, and show proof of purchase.
 					</p>
 				</div>
 			</div>
