@@ -547,6 +547,7 @@ function printPage($p) {
 	} else {
 			// Userpage
 			P::UserPage($_GET["u"], isset($_GET['m']) ? $_GET['m'] : -1);
+		
 	}
 }
 /*
@@ -596,7 +597,7 @@ function printNavbar() {
 						'.(file_exists(dirname(__FILE__).'/../blog/anchor/config/db.php') ? '<li class="dropdown-submenu"><a href="blog/"><i class="fa fa-anchor"></i>	Blog</a></li>' : '').'
 						<li class="divider"></li>
 						<li class="dropdown-submenu"><a href="/p/21"><i class="fa fa-info-circle"></i>	About</a></li>
-						<li class="dropdown-submenu"><a href="/p/23"><i class="fa fa-github"></i>	Github</a></li>
+						<li class="dropdown-submenu"><a href="https://github.com/osuYozora"><i class="fa fa-github"></i>	Github</a></li>
 					</ul>
 				</li>';
 	} 
@@ -622,7 +623,7 @@ function printNavbar() {
 						echo '
 						<li class="dropdown-submenu"><a href="'.$discordConfig["invite_url"].'"><i class="fa fa-comment"></i>	Discord</a></li>
 						<li class="dropdown-submenu"><a href="/p/21"><i class="fa fa-info-circle"></i>	About</a></li>
-						<li class="dropdown-submenu"><a href="/p/23"><i class="fa fa-github"></i>	Github</a></li>
+						<li class="dropdown-submenu"><a href="https://github.com/osuYozora"><i class="fa fa-github"></i>	Github</a></li>
 					</ul>
 				</li>';
 		echo '<li><a class="support-color" href="/support"><b><i class="fa fa-heart" ></i>	Support us</a></b></li>';
