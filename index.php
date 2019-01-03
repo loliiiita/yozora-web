@@ -79,14 +79,14 @@ if (isset($_GET['p'])) {
 <html lang="en">
 
 <head>
-<meta name="description"               content="Welcome to yozora. We are an osu! private server featuring 3 mods osu!, relax and auto, all 3 integrated into a single server, each with their own individual PP system, pp-sorted leaderboards, fully-functioning multiplayer, fully-functioning spectator, and many others."/>
+<meta name="description"               content="Welcome to Yozora. We are an private osu! server featuring Standard, Relax and Autopilot rankings, all 3 integrated into a single server, each with their own individual PP system, pp-sorted leaderboards, fully-functioning multiplayer and spectator, and many other neat features, come join us!"/>
 	<meta name="keywords"                  content="osu, osu private server, osu server, yozora, akatsuki, akatsuki relax, gatari, ripple, relax server, osu!">
 	<meta name="theme-color"               content="#080808"/>
 	<meta name="color"                     content="#080808"/>
 	<meta property="og:url"                content="https://yozora.pw/"/>
 	<meta property="og:type"               content="website"/>
 	<meta property="og:title"              content="<?php echo $title; ?>"/>
-	<meta property="og:description"        content="Welcome to yozora!"/> 
+	<meta property="og:description"        content="Welcome to Yozora!"/> 
 	<meta property="og:image"              content="https://yozora.pw/images/logos/circle.png"/>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -409,9 +409,9 @@ switch ($p) {
 					}
 
 					$("#supporter-prices").html(str);
-					$("#supporter-btc-price").html(priceMBTC);
+					//$("#supporter-btc-price").html(priceMBTC);
 					$("#paypal-supporter-period").val(months+" months");
-					$("#pay").attr("href", "https://paypal.me/jacksonisiahpro/"+priceEUR);
+					//$("#pay").attr("href", "https://paypal.me/jacksonisiahpro/"+priceEUR);
 					$("#paypal-price").html(priceEUR);
 				};
 
@@ -424,7 +424,7 @@ switch ($p) {
 					url: "https://api.bitcoinaverage.com/ticker/all",
 					marketRateVariable: "24h_avg",
 					currencies: ["BTC", "USD", "EUR"],
-					defaultCurrency: "BTC",
+					defaultCurrency: "EUR",
 				});
 
 				// Initialize price for 1 month
