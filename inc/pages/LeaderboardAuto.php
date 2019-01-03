@@ -85,7 +85,7 @@ class Leaderboard_Auto {
 			}
 			// Show PP or score
 			if ($ScoresConfig["enablePP"] && ($m == 0 || $m == 3 || $m == 2 || $m == 1))
-				$score = number_format($lbUser['pp_'.$modeForDB.'_rx']) . ' pp';
+				$score = number_format($lbUser['pp_'.$modeForDB.'_auto']) . ' pp';
 			else
 				$score = number_format($lbUser['ranked_score_'.$modeForDB]);
 			// Draw table row for this user
